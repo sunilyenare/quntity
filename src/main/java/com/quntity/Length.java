@@ -12,6 +12,6 @@ public class Length implements Measurement {
 
     @Override
     public boolean compare(Measurement measurement) {
-        return this.value == ((Length) measurement).value;
+        return this.value == ((Length) measurement).value && this.unit.equals(((Length) measurement).unit);
     }
 }

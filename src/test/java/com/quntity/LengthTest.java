@@ -21,4 +21,12 @@ public class LengthTest {
 
         assertFalse(oneFeet.compare(twoFeet));
     }
+
+    @Test
+    void givenOneFeetAndOneInch_whenCompare_TheyShouldNotBeEqual() {
+        Length oneFeet = new Length(1, "feet");
+        Length twoInch = new Length(1, "inch");
+
+        assertFalse(oneFeet.compare(twoInch));
+    }
 }
