@@ -1,15 +1,15 @@
 package com.quntity.test;
 
 public class Quntity {
-    private final float feet;
-    private final float inch;
+    private final float value;
+    private final String feet;
 
-    public Quntity(float feet, float inch) {
+    public Quntity(float value, String feet) {
+        this.value = value;
         this.feet = feet;
-        this.inch = inch;
     }
 
-    public boolean compare() {
-        return true;
+    public boolean compare(Quntity quntity) {
+        return this.value==quntity.value;
     }
 }
