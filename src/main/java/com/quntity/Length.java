@@ -2,10 +2,14 @@ package com.quntity;
 
 public class Length {
 
-    private final float value;
-    private final String unit;
+    enum Unit {
+        Foot
+    }
 
-    public Length(float value, String unit) {
+    private final float value;
+    private final Unit unit;
+
+    public Length(float value, Unit unit) {
         this.value = value;
         this.unit = unit;
     }
