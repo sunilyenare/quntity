@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.quntity.test.QuntityTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-09-27T05:31:06" hostname="SUNILs-MacBook-Pro.local" time="0.009">
-  <properties/>
-  <testcase name="givenOneFeetAndTw0Feet_whenCompare_TheyShouldNotBeEqual()" classname="com.quntity.test.QuntityTest" time="0.007"/>
-  <testcase name="givenZeroFeetAndZeroFeet_whenCompare_TheyShouldBeEqual()" classname="com.quntity.test.QuntityTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
