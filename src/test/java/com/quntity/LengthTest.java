@@ -10,23 +10,31 @@ public class LengthTest {
     @Test
     void givenZeroFeetAndZeroFeet_whenCompare_TheyShouldBeEqual() {
         Length zeroFeet = new Length(0, "feet");
+        Length anotherZeroFeet = new Length(0, "feet");
 
-        assertTrue(zeroFeet.compare(zeroFeet));
+        assertTrue(anotherZeroFeet.equals(zeroFeet));
     }
 
     @Test
-    void givenOneFeetAndTw0Feet_whenCompare_TheyShouldNotBeEqual() {
-        Length oneFeet = new Length(1, "feet");
-        Length twoFeet = new Length(2, "feet");
+    void givenZeroFeetAndAAnotherObject_whenCompare_TheyShouldNotBeEqual() {
+        Length zeroFeet = new Length(0, "feet");
 
-        assertFalse(oneFeet.compare(twoFeet));
+        assertFalse(zeroFeet.equals(new Object()));
     }
 
-    @Test
-    void givenOneFeetAndOneInch_whenCompare_TheyShouldNotBeEqual() {
-        Length oneFeet = new Length(1, "feet");
-        Length twoInch = new Length(1, "inch");
-
-        assertFalse(oneFeet.compare(twoInch));
-    }
+//    @Test
+//    void givenOneFeetAndTw0Feet_whenCompare_TheyShouldNotBeEqual() {
+//        Length oneFeet = new Length(1, "feet");
+//        Length twoFeet = new Length(2, "feet");
+//
+//        assertFalse(oneFeet.equals(twoFeet));
+//    }
+//
+//    @Test
+//    void givenOneFeetAndOneInch_whenCompare_TheyShouldNotBeEqual() {
+//        Length oneFeet = new Length(1, "feet");
+//        Length twoInch = new Length(1, "inch");
+//
+//        assertFalse(oneFeet.equals(twoInch));
+//    }
 }

@@ -1,6 +1,6 @@
 package com.quntity;
 
-public class Length implements Measurement {
+public class Length {
 
     private final float value;
     private final String unit;
@@ -11,7 +11,8 @@ public class Length implements Measurement {
     }
 
     @Override
-    public boolean compare(Measurement measurement) {
-        return this.value == ((Length) measurement).value && this.unit.equals(((Length) measurement).unit);
+    public boolean equals(Object obj) {
+        return obj instanceof Length;
     }
+
 }
