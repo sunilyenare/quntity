@@ -12,8 +12,8 @@ public class LengthTest {
         @Test
         void givenZeroFeetAndZeroFeet_whenCompare_TheyShouldBeEqual() {
             Length anotherZeroLength = new Length(0, Unit.FEET);
-
             final Length zeroFoot = new Length(0, Unit.FEET);
+
             assertTrue(anotherZeroLength.equals(zeroFoot));
         }
 
@@ -32,7 +32,7 @@ public class LengthTest {
         }
 
         @Test
-        void givenZeroFeeAndNull_whenCompare_TheyShouldNotBeEqual() {
+        void givenZeroFeetAndNull_whenCompare_TheyShouldNotBeEqual() {
 
             Length zeroLength = new Length(1, Unit.FEET);
 
@@ -62,7 +62,7 @@ public class LengthTest {
         @Test
         void givenZeroInchAndOneInch_whenCheckEquality_theyShouldNotBeEqual() {
 
-            assertFalse(withZero.equals(new Length(1, Unit.INCH)));
+            assertFalse(withZero.equals(new Length(1.0f, Unit.INCH)));
         }
 
         @Test
@@ -87,26 +87,28 @@ public class LengthTest {
 
         assertTrue(zeroFeet.equals(zeroInch));
     }
+
     @Test
-    void givenOneFeetAndTwelveInch_whenCheckEquality_theShouldBeEqual(){
+    void givenOneFeetAndTwelveInch_whenCheckEquality_theShouldBeEqual() {
         Length twelveInch = new Length(12, Unit.INCH);
         Length oneFeet = new Length(1, Unit.FEET);
 
-        assertEquals(oneFeet,twelveInch);
+        assertEquals(oneFeet, twelveInch);
     }
 
     @Test
-    void givenTwoFeetAndTwentyFourInch_whenCheckEquality_theyShouldBeEqual(){
+    void givenTwoFeetAndTwentyFourInch_whenCheckEquality_theyShouldBeEqual() {
         Length twentyFourInch = new Length(24, Unit.INCH);
         Length twoFeet = new Length(2, Unit.FEET);
 
-        assertEquals(twoFeet,twentyFourInch);
+        assertEquals(twoFeet, twentyFourInch);
     }
+
     @Test
-    void givenTwelveInchAndOneFeet_whenCheckEquality_theyShouldbeEqual(){
+    void givenTwelveInchAndOneFeet_whenCheckEquality_theyShouldbeEqual() {
         Length twelveInch = new Length(12, Unit.INCH);
         Length oneFeet = new Length(1, Unit.FEET);
 
-        assertEquals(twelveInch,oneFeet);
+        assertEquals(twelveInch, oneFeet);
     }
 }

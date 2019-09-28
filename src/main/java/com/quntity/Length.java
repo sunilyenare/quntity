@@ -13,17 +13,14 @@ public class Length {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Length)) return false;
-
-        if ((this.unit == Unit.FEET && ((Length) obj).unit == Unit.INCH) ||
-                (this.unit == Unit.INCH && ((Length) obj).unit == Unit.FEET)) {
-
-            if (((Length) obj).value / ONE_FEET_IN_INCH == this.value || this.value / ONE_FEET_IN_INCH == ((Length) obj).value)
-                return true;
-        }
-        return this.value == ((Length) obj).value &&
-                this.unit == ((Length) obj).unit;
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Length))
+            return false;
+        final Length other = (Length) obj;
+        final float meInBase = this.unit.convertToBase(value);
+        final float otherInBase = other.unit.convertToBase(other.value);
+        return meInBase == otherInBase;
     }
 
 }
