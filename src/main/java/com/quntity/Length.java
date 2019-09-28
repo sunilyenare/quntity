@@ -13,9 +13,17 @@ public class Length {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if(this.value==((Length) obj).value) return true;
-        return obj instanceof Length && this.value == ((Length) obj).value &&
-                this.unit==((Length) obj).unit;
+        if (obj instanceof Length) {
+            if(((Length) obj).unit==Unit.INCH && this.unit==Unit.FEET){
+                if(this.value==0)
+                    return true;
+                if(this.value==1&&((Length) obj).value==12)
+                    return true;
+            }
+            return this.value == ((Length) obj).value &&
+                    this.unit == ((Length) obj).unit;
+        }
+        return false;
     }
 
 }

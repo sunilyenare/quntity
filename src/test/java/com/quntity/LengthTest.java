@@ -3,13 +3,12 @@ package com.quntity;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LengthTest {
 
     @Nested
-    class FeetTest{
+    class FeetTest {
         @Test
         void givenZeroFeetAndZeroFeet_whenCompare_TheyShouldBeEqual() {
             Length anotherZeroLength = new Length(0, Unit.FEET);
@@ -44,7 +43,7 @@ public class LengthTest {
     }
 
     @Nested
-    class InchTest{
+    class InchTest {
         Length withZero = new Length(0, Unit.INCH);
 
         @Test
@@ -74,17 +73,25 @@ public class LengthTest {
     }
 
     @Test
-    void givenOneInchAndOneFeet_whenCheckEquality_thenShouldNotbeEqual(){
-        Length oneInch=new Length(1, Unit.INCH);
-        Length oneFeet=new Length(1, Unit.FEET);
+    void givenOneInchAndOneFeet_whenCheckEquality_thenShouldNotBeEqual() {
+        Length oneInch = new Length(1, Unit.INCH);
+        Length oneFeet = new Length(1, Unit.FEET);
 
         assertFalse(oneFeet.equals(oneInch));
     }
+
     @Test
-    void givenZeroFeetAndZeroInch_whenCheckEquality_thenShouldbeEqual(){
-        Length zeroInch=new Length(0, Unit.INCH);
-        Length zeroFeet=new Length(0, Unit.FEET);
+    void givenZeroFeetAndZeroInch_whenCheckEquality_thenShouldBeEqual() {
+        Length zeroInch = new Length(0, Unit.INCH);
+        Length zeroFeet = new Length(0, Unit.FEET);
 
         assertTrue(zeroFeet.equals(zeroInch));
+    }
+    @Test
+    void givenOneFeetAndTwelveInch_whenCheckEquality_theShouldBeEqual(){
+        Length twelveInch = new Length(12, Unit.INCH);
+        Length oneFeet = new Length(1, Unit.FEET);
+
+        assertEquals(oneFeet,twelveInch);
     }
 }
