@@ -1,10 +1,19 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
-group 'com.thoughtwork'
-version '1.0-SNAPSHOT'
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'org.com.thoughtwork'
+            artifactId = 'quntity'
+            version = '1.1'
+            from components.java
+        }
+    }
+}
 sourceCompatibility = JavaVersion.VERSION_11
 repositories {
     mavenCentral()
