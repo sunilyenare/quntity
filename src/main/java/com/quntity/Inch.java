@@ -9,7 +9,9 @@ public class Inch {
 
     @Override
     public boolean equals(Object obj) {
+        if(obj instanceof Inch)
+            return this==(Inch)obj;
 
-        return obj instanceof Inch;
+        return false;
     }
 }

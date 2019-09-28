@@ -19,4 +19,11 @@ public class InchTest {
 
         assertFalse(withZero.equals(new String()));
     }
+
+    @Test
+    void givenZeroInchAndOneInch_whenCheckEquality_theyShouldNotBeEqual() {
+        Inch withZero = new Inch(0);
+
+        assertFalse(withZero.equals(new Inch(1)));
+    }
 }
