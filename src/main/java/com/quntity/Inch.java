@@ -9,6 +9,7 @@ public class Inch {
 
     @Override
     public boolean equals(Object obj) {
-        return true;
+
+        return obj instanceof Inch;
     }
 }
