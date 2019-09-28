@@ -6,11 +6,9 @@ public class Length {
     }
 
     private final float value;
-    private final Unit unit;
 
     public Length(float value, Unit unit) {
         this.value = value;
-        this.unit = unit;
     }
 
     @Override
