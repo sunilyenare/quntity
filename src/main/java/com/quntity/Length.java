@@ -2,6 +2,7 @@ package com.quntity;
 
 public class Length {
 
+    public static final int ONE_FEET_IN_INCH = 12;
     private final float value;
     private final Unit unit;
 
@@ -13,17 +14,16 @@ public class Length {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj instanceof Length) {
-            if(((Length) obj).unit==Unit.INCH && this.unit==Unit.FEET){
-                if(this.value==0)
-                    return true;
-                if(this.value==1&&((Length) obj).value==12)
-                    return true;
-            }
-            return this.value == ((Length) obj).value &&
-                    this.unit == ((Length) obj).unit;
+        if (!(obj instanceof Length)) return false;
+
+        if ((this.unit == Unit.FEET && ((Length) obj).unit == Unit.INCH) ||
+                (this.unit == Unit.INCH && ((Length) obj).unit == Unit.FEET)) {
+
+            if (((Length) obj).value / ONE_FEET_IN_INCH == this.value || this.value / ONE_FEET_IN_INCH == ((Length) obj).value)
+                return true;
         }
-        return false;
+        return this.value == ((Length) obj).value &&
+                this.unit == ((Length) obj).unit;
     }
 
 }

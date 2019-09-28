@@ -94,4 +94,19 @@ public class LengthTest {
 
         assertEquals(oneFeet,twelveInch);
     }
+
+    @Test
+    void givenTwoFeetAndTwentyFourInch_whenCheckEquality_theyShouldBeEqual(){
+        Length twentyFourInch = new Length(24, Unit.INCH);
+        Length twoFeet = new Length(2, Unit.FEET);
+
+        assertEquals(twoFeet,twentyFourInch);
+    }
+    @Test
+    void givenTwelveInchAndOneFeet_whenCheckEquality_theyShouldbeEqual(){
+        Length twelveInch = new Length(12, Unit.INCH);
+        Length oneFeet = new Length(1, Unit.FEET);
+
+        assertEquals(twelveInch,oneFeet);
+    }
 }
