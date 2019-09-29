@@ -1,17 +1,15 @@
 package com.quntity;
 
 public enum Unit {
-    FEET {
-        @Override
-        public float convertToBase(float value) {
-            return value * 12;
-        }
-    }, INCH {
-        @Override
-        public float convertToBase(float value) {
-            return value;
-        }
-    };
+    FEET(12) , INCH(1) ,YARD(1);
 
-    public abstract float convertToBase(float value);
+    private double conversionFactor;
+
+    Unit(double conversionFactor) {
+        this.conversionFactor = conversionFactor;
+    }
+
+    public double convertToBase(Double value) {
+        return value * conversionFactor;
+    }
 }

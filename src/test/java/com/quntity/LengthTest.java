@@ -111,4 +111,18 @@ public class LengthTest {
 
         assertEquals(twelveInch, oneFeet);
     }
+
+    @Nested
+    class YardTest {
+        Length withZero = new Length(0, Unit.YARD);
+
+        @Test
+        void givenZeroYardAndZeroYard_whenCheckEquality_theyShouldBeEqual() {
+            Length withAnotherZero = new Length(0, Unit.YARD);
+
+            assertTrue(withZero.equals(withAnotherZero));
+        }
+
+    }
+
 }
