@@ -21,4 +21,7 @@ public class Length {
         return meInBase == otherInBase;
     }
 
+    public double add(Length that) {
+        return 0.0;
+    }
 }
