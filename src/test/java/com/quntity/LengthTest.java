@@ -129,6 +129,11 @@ public class LengthTest {
             assertFalse(withZero.equals(new String()));
         }
 
+        @Test
+        void givenZeroYardAndOneYard_whenCheckEquality_theyShouldNotBeEqual() {
+
+            assertFalse(withZero.equals(new Length(1.0f, Unit.YARD)));
+        }
     }
 
 }
