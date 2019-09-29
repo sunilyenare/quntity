@@ -72,45 +72,49 @@ public class LengthTest {
         }
     }
 
-    @Test
-    void givenOneInchAndOneFeet_whenCheckEquality_thenShouldNotBeEqual() {
-        Length oneInch = new Length(1, Unit.INCH);
-        Length oneFeet = new Length(1, Unit.FEET);
+   @Nested
+   class ConversionTest{
+       @Test
+       void givenOneInchAndOneFeet_whenCheckEquality_thenShouldNotBeEqual() {
+           Length oneInch = new Length(1, Unit.INCH);
+           Length oneFeet = new Length(1, Unit.FEET);
 
-        assertFalse(oneFeet.equals(oneInch));
-    }
+           assertFalse(oneFeet.equals(oneInch));
+       }
 
-    @Test
-    void givenZeroFeetAndZeroInch_whenCheckEquality_thenShouldBeEqual() {
-        Length zeroInch = new Length(0, Unit.INCH);
-        Length zeroFeet = new Length(0, Unit.FEET);
+       @Test
+       void givenZeroFeetAndZeroInch_whenCheckEquality_thenShouldBeEqual() {
+           Length zeroInch = new Length(0, Unit.INCH);
+           Length zeroFeet = new Length(0, Unit.FEET);
 
-        assertTrue(zeroFeet.equals(zeroInch));
-    }
+           assertTrue(zeroFeet.equals(zeroInch));
+       }
 
-    @Test
-    void givenOneFeetAndTwelveInch_whenCheckEquality_theShouldBeEqual() {
-        Length twelveInch = new Length(12, Unit.INCH);
-        Length oneFeet = new Length(1, Unit.FEET);
+       @Test
+       void givenOneFeetAndTwelveInch_whenCheckEquality_theShouldBeEqual() {
+           Length twelveInch = new Length(12, Unit.INCH);
+           Length oneFeet = new Length(1, Unit.FEET);
 
-        assertEquals(oneFeet, twelveInch);
-    }
+           assertEquals(oneFeet, twelveInch);
+       }
 
-    @Test
-    void givenTwoFeetAndTwentyFourInch_whenCheckEquality_theyShouldBeEqual() {
-        Length twentyFourInch = new Length(24, Unit.INCH);
-        Length twoFeet = new Length(2, Unit.FEET);
+       @Test
+       void givenTwoFeetAndTwentyFourInch_whenCheckEquality_theyShouldBeEqual() {
+           Length twentyFourInch = new Length(24, Unit.INCH);
+           Length twoFeet = new Length(2, Unit.FEET);
 
-        assertEquals(twoFeet, twentyFourInch);
-    }
+           assertEquals(twoFeet, twentyFourInch);
+       }
 
-    @Test
-    void givenTwelveInchAndOneFeet_whenCheckEquality_theyShouldbeEqual() {
-        Length twelveInch = new Length(12, Unit.INCH);
-        Length oneFeet = new Length(1, Unit.FEET);
+       @Test
+       void givenTwelveInchAndOneFeet_whenCheckEquality_theyShouldbeEqual() {
+           Length twelveInch = new Length(12, Unit.INCH);
+           Length oneFeet = new Length(1, Unit.FEET);
 
-        assertEquals(twelveInch, oneFeet);
-    }
+           assertEquals(twelveInch, oneFeet);
+       }
+
+   }
 
     @Nested
     class YardTest {
