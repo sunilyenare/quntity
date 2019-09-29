@@ -164,6 +164,7 @@ public class LengthTest {
 
     @Nested
     class AddLengths {
+
         @Test
         void givenZeroInchAndZeroInch_whenAdd_theyShouldAdd() {
 
@@ -171,6 +172,15 @@ public class LengthTest {
             Length anotherZeroInch = new Length(0, Unit.INCH);
 
             assertEquals(0.0, zeroInch.add(anotherZeroInch));
+        }
+
+        @Test
+        void givenOneInchAndOneInch_whenAdd_theyShouldAdd() {
+
+            Length oneInch = new Length(1, Unit.INCH);
+            Length anotherOneInch = new Length(1, Unit.INCH);
+
+            assertEquals(2.0, oneInch.add(anotherOneInch));
         }
 
     }
