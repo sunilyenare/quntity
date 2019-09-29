@@ -182,7 +182,14 @@ public class LengthTest {
 
             assertEquals(2.0, oneInch.add(anotherOneInch));
         }
+        @Test
+        void givenTwoInchAndTwoInch_whenAdd_theyShouldAdd() {
 
+            Length twoInch = new Length(2, Unit.INCH);
+            Length anotherTwoInch = new Length(2, Unit.INCH);
+
+            assertEquals(4.0, twoInch.add(anotherTwoInch));
+        }
     }
 
 }

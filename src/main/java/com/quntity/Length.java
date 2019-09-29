@@ -22,9 +22,6 @@ public class Length {
     }
 
     public double add(Length that) {
-        if (value == 0.0) {
-            return 0.0;
-        }
-        return 2.0;
+        return this.value+that.value;
     }
 }
