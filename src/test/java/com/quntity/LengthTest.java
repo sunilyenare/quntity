@@ -123,6 +123,12 @@ public class LengthTest {
             assertTrue(withZero.equals(withAnotherZero));
         }
 
+        @Test
+        void givenZeroYardAndAnotherObject_whenCheckEquality_theyShouldNotBeEqual() {
+
+            assertFalse(withZero.equals(new String()));
+        }
+
     }
 
 }
