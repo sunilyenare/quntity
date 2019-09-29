@@ -1,10 +1,10 @@
 package com.quntity;
 
-public class Length {
+public class Quantity {
     private final double value;
     private final Unit unit;
 
-    public Length(double value, Unit unit) {
+    public Quantity(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
     }
@@ -13,15 +13,17 @@ public class Length {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (!(obj instanceof Length))
+        if (!(obj instanceof Quantity))
             return false;
-        final Length other = (Length) obj;
+        final Quantity other = (Quantity) obj;
         final double meInBase = this.unit.convertToBase(value);
         final double otherInBase = other.unit.convertToBase(other.value);
+        System.out.println(meInBase+"this");
+        System.out.println(otherInBase+"that");
         return meInBase == otherInBase;
     }
 
-    public Length add(Length that) {
-        return new Length(this.unit.convertToBase(value) + that.value, Unit.INCH);
+    public Quantity add(Quantity that) {
+        return new Quantity(this.unit.convertToBase(value) + that.unit.convertToBase(that.value), Unit.INCH);
     }
 }

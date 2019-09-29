@@ -1,7 +1,7 @@
 package com.quntity;
 
 public enum Unit {
-    FEET(12) , INCH(1) ,YARD(1);
+    FEET(12) , INCH(1) ,YARD(1),GALLON(3.78),LITER(1);
 
     private double conversionFactor;
 
@@ -11,5 +11,12 @@ public enum Unit {
 
     public double convertToBase(Double value) {
         return value * conversionFactor;
+    }
+
+    @Override
+    public String toString() {
+        return "Unit{" +
+                "conversionFactor=" + conversionFactor +
+                '}';
     }
 }
