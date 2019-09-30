@@ -138,6 +138,34 @@ public class QuantityTest {
             assertTrue(oneGallon.equals(threePointSeventyEightLiter));
         }
 
+        @Test
+        void givenOneGallonAndOneLiter_whenAdd_theyShouldReturnFourPointSevenEightLiter() {
+
+            Quantity oneGallon = new Quantity(1, Unit.GALLON);
+            Quantity oneLiter = new Quantity(1, Unit.LITER);
+
+            assertEquals(new Quantity(4.78, Unit.LITER), oneGallon.add(oneLiter));
+        }
+
+    }
+    @Nested
+    class Gallon{
+
+        @Test
+        void givenOneGallonAndOneLiter_whenCheckEquality_theyShouldNotBeEqual(){
+            Quantity oneGallon=new Quantity(1,Unit.GALLON);
+            Quantity oneLiter=new Quantity(1,Unit.LITER);
+
+            assertFalse(oneGallon.equals(oneLiter));
+        }
+        @Test
+        void givenOneFeetAndOneGallon_whenCheckEquality_theyShouldNotBeEqual(){
+            Quantity oneFeet=new Quantity(1,Unit.LITER);
+            Quantity oneGallon=new Quantity(1,Unit.GALLON);
+
+            assertFalse(oneGallon.equals(oneFeet));
+        }
+
     }
 
     @Nested
