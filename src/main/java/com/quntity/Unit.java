@@ -4,25 +4,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum Unit {
-    FEET(12), INCH(1), YARD(1), GALLON(3.78), LITER(1);
+    FEET(12, "LENGTH"), INCH(1, "LENGTH"), YARD(1, "LENGTH"),
+
+    GALLON(3.78, "VOLUME"), LITER(1, "VOLUME");
 
     protected static List<Unit> unitLength = new ArrayList<Unit>();
     protected static List<Unit> unitVolume = new ArrayList<Unit>();
     private double conversionFactor;
+    protected String type;
 
-    Unit(double conversionFactor) {
+    Unit(double conversionFactor, String type) {
         this.conversionFactor = conversionFactor;
+        this.type = type;
     }
 
     public static List<Unit> lengthUnits() {
-        unitLength.add(Unit.FEET);
-        unitLength.add(Unit.INCH);
+        final Unit[] values = Unit.values();
+        for (Unit unit : values) {
+            if(unit.type.equals("LENGTH")) {
+                unitLength.add(unit);
+            }
+        }
         return unitLength;
     }
 
     public static List<Unit> volumeUnit() {
-        unitVolume.add(Unit.GALLON);
-        unitVolume.add(Unit.LITER);
+        final Unit[] values = Unit.values();
+        for (Unit unit : values) {
+            if(unit.type.equals("VOLUME")) {
+                unitVolume.add(unit);
+            }
+        }
         return unitVolume;
     }
 
