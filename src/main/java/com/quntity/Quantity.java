@@ -18,18 +18,20 @@ public class Quantity {
         if (!(obj instanceof Quantity))
             return false;
         final Quantity other = (Quantity) obj;
+
+
         final double meInBase = this.unit.convertToBase(value);
         final double otherInBase = (double) Math.round(other.unit.convertToBase(other.value) * 100) / 100;
-        System.out.println(meInBase + "this");
-        System.out.println(otherInBase + "that");
+        System.out.println("this" + meInBase);
+        System.out.println("that" + otherInBase);
         return meInBase == otherInBase;
     }
 
-    public Quantity add(Quantity that) throws IOException {
-        if (this.unit == Unit.FEET || this.unit == Unit.INCH && that.unit == Unit.GALLON || that.unit == Unit.LITER) {
+    public Quantity add(Quantity other) throws IOException {
+        if (this.unit == Unit.FEET || this.unit == Unit.INCH && other.unit == Unit.GALLON || other.unit == Unit.LITER) {
             throw new IOException();
         }
-        return new Quantity(this.unit.convertToBase(value) + that.unit.convertToBase(that.value), that.unit);
+        return new Quantity(this.unit.convertToBase(value) + other.unit.convertToBase(other.value), other.unit);
     }
 
     @Override
