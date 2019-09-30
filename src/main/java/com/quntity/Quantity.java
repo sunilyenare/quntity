@@ -30,7 +30,7 @@ public class Quantity {
         volumeUnits.add(Unit.GALLON);
         volumeUnits.add(Unit.LITER);
 
-        if (lengthUnits.contains(this.unit) && volumeUnits.contains(other.unit)) {
+        if (lengthUnits.contains(this.unit) && volumeUnits.contains(other.unit) || volumeUnits.contains(this.unit) && lengthUnits.contains(other.unit)) {
             return false;
         }
 
