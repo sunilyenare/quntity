@@ -12,22 +12,7 @@ public class Quantity {
         this.unit = unit;
     }
 
-    public static Quantity createFeet(double value){
-       return new Quantity(value,Unit.FEET);
-    }
-    public static Quantity createInch(double value){
-        return new Quantity(value,Unit.INCH);
-    }
-    public static Quantity createYard(double value){
-        return new Quantity(value,Unit.YARD);
-    }
 
-    public static Quantity createLiter(double value){
-        return new Quantity(value,Unit.LITER);
-    }
-    public static Quantity createGallon(double value){
-        return new Quantity(value,Unit.GALLON);
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -40,7 +25,6 @@ public class Quantity {
         if (Unit.lengthUnits().contains(this.unit) && Unit.volumeUnit().contains(other.unit) || Unit.volumeUnit().contains(this.unit) && Unit.lengthUnits().contains(other.unit)) {
             return false;
         }
-
 
 
         final double meInBase = this.unit.convertToBase(value);

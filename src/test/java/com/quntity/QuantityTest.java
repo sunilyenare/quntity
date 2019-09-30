@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static com.quntity.Quantity.*;
+import static com.quntity.QuantityFactory.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QuantityTest {
@@ -119,7 +119,7 @@ public class QuantityTest {
 
         @Test
         void givenOneYardAndOneFeet_whenCheckEquality_thenShouldNotBeEqual() {
-            Quantity oneYard =  createYard(1);
+            Quantity oneYard = createYard(1);
             Quantity oneFeet = createFeet(1);
 
             assertFalse(oneFeet.equals(oneYard));
@@ -127,7 +127,7 @@ public class QuantityTest {
 
         @Test
         void givenOneYardAndThreeFeet_whenCheckEquality_thenShouldBeEqual() {
-            Quantity oneYard =  createYard(1);
+            Quantity oneYard = createYard(1);
             Quantity threeFeet = createFeet(3);
 
             assertFalse(threeFeet.equals(oneYard));
@@ -135,7 +135,7 @@ public class QuantityTest {
 
         @Test
         void givenOneGallonAndThreePointSeventyEightLiter_whenCheckEquality_thenShouldBeEqual() {
-            Quantity oneGallon =  createGallon(1);
+            Quantity oneGallon = createGallon(1);
             Quantity threePointSeventyEightLiter = createLiter(3.78);
 
             assertTrue(oneGallon.equals(threePointSeventyEightLiter));
@@ -144,7 +144,7 @@ public class QuantityTest {
         @Test
         void givenOneGallonAndOneLiter_whenAdd_theyShouldReturnFourPointSevenEightLiter() throws IOException {
 
-            Quantity oneGallon =  createGallon(1);
+            Quantity oneGallon = createGallon(1);
             Quantity oneLiter = createLiter(1);
 
             assertEquals(createLiter(4.78), oneGallon.add(oneLiter));
@@ -157,7 +157,7 @@ public class QuantityTest {
 
         @Test
         void givenOneGallonAndOneLiter_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneGallon =  createGallon(1);
+            Quantity oneGallon = createGallon(1);
             Quantity oneLiter = createLiter(1);
 
             assertFalse(oneGallon.equals(oneLiter));
@@ -166,7 +166,7 @@ public class QuantityTest {
         @Test
         void givenOneFeetAndOneGallon_whenCheckEquality_theyShouldNotBeEqual() {
             Quantity oneFeet = createFeet(1);
-            Quantity oneGallon =  createGallon(1);
+            Quantity oneGallon = createGallon(1);
 
             assertNotEquals(oneGallon, oneFeet);
         }
@@ -190,7 +190,7 @@ public class QuantityTest {
         @Test
         void givenOneFeetAndOneGallon_whenAdded_theyShouldNotBeAdd() {
             Quantity oneFeet = createFeet(1);
-            Quantity oneGallon =  createGallon(1);
+            Quantity oneGallon = createGallon(1);
 
             assertThrows(IOException.class, () -> {
                 oneFeet.add(oneGallon);
@@ -199,7 +199,7 @@ public class QuantityTest {
 
         @Test
         void givenOneGallonAndOneFeet_whenAdded_theyShouldNotBeAdd() {
-            Quantity oneGallon =  createGallon(1);
+            Quantity oneGallon = createGallon(1);
             Quantity oneFeet = createFeet(1);
 
             assertThrows(IOException.class, () -> {
@@ -210,11 +210,11 @@ public class QuantityTest {
 
     @Nested
     class YardTest {
-        Quantity withZero =  createYard(0);
+        Quantity withZero = createYard(0);
 
         @Test
         void givenZeroYardAndZeroYard_whenCheckEquality_theyShouldBeEqual() {
-            Quantity withAnotherZero =  createYard(0);
+            Quantity withAnotherZero = createYard(0);
 
             assertTrue(withZero.equals(withAnotherZero));
         }
@@ -228,8 +228,8 @@ public class QuantityTest {
         @Test
         void givenZeroYardAndOneYard_whenCheckEquality_theyShouldNotBeEqual() {
 
-            assertFalse(withZero.equals( createYard(1)));
-           
+            assertFalse(withZero.equals(createYard(1)));
+
         }
 
         @Test
