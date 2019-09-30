@@ -175,7 +175,15 @@ public class QuantityTest {
             Quantity oneInch = new Quantity(1, Unit.INCH);
             Quantity oneLiter = new Quantity(1, Unit.LITER);
 
-             assertFalse(oneInch.equals(oneLiter));
+            assertFalse(oneInch.equals(oneLiter));
+        }
+
+        @Test
+        void givenOneLiterAndOneInch_whenCheckEquality_theyShouldNotBeEqual() {
+            Quantity oneLiter = new Quantity(1, Unit.LITER);
+            Quantity oneInch = new Quantity(1, Unit.INCH);
+
+            assertFalse(oneLiter.equals(oneInch));
         }
 
         @Test

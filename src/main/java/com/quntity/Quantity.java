@@ -19,10 +19,12 @@ public class Quantity {
             return false;
         final Quantity other = (Quantity) obj;
 
-        if (this.unit == Unit.FEET || this.unit == Unit.INCH && other.unit == Unit.GALLON || other.unit == Unit.LITER){
+        if (this.unit == Unit.FEET || this.unit == Unit.INCH && other.unit == Unit.GALLON || other.unit == Unit.LITER) {
             return false;
         }
-
+        if (this.unit == Unit.GALLON || this.unit == Unit.LITER && other.unit == Unit.FEET || other.unit == Unit.INCH) {
+            return false;
+        }
         final double meInBase = this.unit.convertToBase(value);
         final double otherInBase = (double) Math.round(other.unit.convertToBase(other.value) * 100) / 100;
         System.out.println("this" + meInBase);
