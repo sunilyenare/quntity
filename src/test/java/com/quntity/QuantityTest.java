@@ -185,6 +185,14 @@ public class QuantityTest {
 
             assertFalse(oneLiter.equals(oneInch));
         }
+        @Test
+        void givenOneFeetAndOneGallon_whenAdded_theyShouldNotBeAdd(){
+            Quantity oneFeet = new Quantity(1, Unit.FEET);
+            Quantity oneGallon = new Quantity(1, Unit.GALLON);
+//            assertThrows(IOException.class, () -> {
+//                oneFeet.add(oneGallon);
+//            });
+        }
 
     }
 

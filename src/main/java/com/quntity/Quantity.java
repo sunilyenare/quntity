@@ -3,16 +3,32 @@ package com.quntity;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Quantity {
     private final double value;
     private final Unit unit;
+    private List<Unit> unitLength;
+    private List<Unit> unitVolume;
 
     public Quantity(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
+        unitLength = new ArrayList<Unit>();
+        unitVolume = new ArrayList<Unit>();
     }
+
+    private List<Unit> lengthUnits() {
+        unitLength.add(Unit.FEET);
+        unitLength.add(Unit.INCH);
+        return unitLength;
+    }
+
+    private List<Unit> volumeUnit() {
+        unitVolume.add(Unit.GALLON);
+        unitVolume.add(Unit.LITER);
+        return unitVolume;
+    }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -22,15 +38,8 @@ public class Quantity {
             return false;
         final Quantity other = (Quantity) obj;
 
-        List<Unit> lengthUnits = new ArrayList<Unit>();
-        lengthUnits.add(Unit.FEET);
-        lengthUnits.add(Unit.INCH);
 
-        List<Unit> volumeUnits = new ArrayList<Unit>();
-        volumeUnits.add(Unit.GALLON);
-        volumeUnits.add(Unit.LITER);
-
-        if (lengthUnits.contains(this.unit) && volumeUnits.contains(other.unit) || volumeUnits.contains(this.unit) && lengthUnits.contains(other.unit)) {
+        if (lengthUnits().contains(this.unit) && volumeUnit().contains(other.unit) || volumeUnit().contains(this.unit) && lengthUnits().contains(other.unit)) {
             return false;
         }
 
