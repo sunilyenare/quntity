@@ -1,6 +1,9 @@
 package com.quntity;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Quantity {
     private final double value;
@@ -19,14 +22,20 @@ public class Quantity {
             return false;
         final Quantity other = (Quantity) obj;
 
-        if(this.unit==Unit.INCH&&other.unit==Unit.LITER){
-            return  false;
+        List<Unit> lengthUnits = new ArrayList<Unit>();
+        lengthUnits.add(Unit.FEET);
+        lengthUnits.add(Unit.INCH);
+
+        List<Unit> volumeUnits = new ArrayList<Unit>();
+        volumeUnits.add(Unit.GALLON);
+        volumeUnits.add(Unit.LITER);
+
+        if (lengthUnits.contains(this.unit) && volumeUnits.contains(other.unit)) {
+            return false;
         }
 
         final double meInBase = this.unit.convertToBase(value);
         final double otherInBase = (double) Math.round(other.unit.convertToBase(other.value) * 100) / 100;
-        System.out.println("this" + meInBase);
-        System.out.println("that" + otherInBase);
         return meInBase == otherInBase;
     }
 

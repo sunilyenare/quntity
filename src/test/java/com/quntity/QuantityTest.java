@@ -167,7 +167,7 @@ public class QuantityTest {
             Quantity oneFeet = new Quantity(1, Unit.FEET);
             Quantity oneGallon = new Quantity(1, Unit.GALLON);
 
-            assertFalse(oneGallon.equals(oneFeet));
+            assertNotEquals(oneGallon, oneFeet);
         }
 
         @Test
@@ -175,7 +175,7 @@ public class QuantityTest {
             Quantity oneInch = new Quantity(1, Unit.INCH);
             Quantity oneLiter = new Quantity(1, Unit.LITER);
 
-            assertFalse(oneInch.equals(oneLiter));
+            assertNotEquals(oneInch, oneLiter);
         }
 
 
