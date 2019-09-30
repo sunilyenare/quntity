@@ -19,7 +19,9 @@ public class Quantity {
             return false;
         final Quantity other = (Quantity) obj;
 
-
+        if(this.unit==Unit.INCH&&other.unit==Unit.LITER){
+            return  false;
+        }
 
         final double meInBase = this.unit.convertToBase(value);
         final double otherInBase = (double) Math.round(other.unit.convertToBase(other.value) * 100) / 100;
