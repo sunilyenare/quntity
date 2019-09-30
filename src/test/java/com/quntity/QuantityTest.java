@@ -189,11 +189,20 @@ public class QuantityTest {
         void givenOneFeetAndOneGallon_whenAdded_theyShouldNotBeAdd(){
             Quantity oneFeet = new Quantity(1, Unit.FEET);
             Quantity oneGallon = new Quantity(1, Unit.GALLON);
+
             assertThrows(IOException.class, () -> {
                 oneFeet.add(oneGallon);
             });
         }
+        @Test
+        void givenOneGallonAndOneFeet_whenAdded_theyShouldNotBeAdd(){
+            Quantity oneGallon = new Quantity(1, Unit.GALLON);
+            Quantity oneFeet = new Quantity(1, Unit.FEET);
 
+            assertThrows(IOException.class, () -> {
+                oneGallon.add(oneFeet);
+            });
+        }
     }
 
     @Nested
