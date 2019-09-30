@@ -7,27 +7,13 @@ import java.util.List;
 public class Quantity {
     private final double value;
     private final Unit unit;
-    private List<Unit> unitLength;
-    private List<Unit> unitVolume;
+
 
     public Quantity(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
-        unitLength = new ArrayList<Unit>();
-        unitVolume = new ArrayList<Unit>();
     }
 
-    private List<Unit> lengthUnits() {
-        unitLength.add(Unit.FEET);
-        unitLength.add(Unit.INCH);
-        return unitLength;
-    }
-
-    private List<Unit> volumeUnit() {
-        unitVolume.add(Unit.GALLON);
-        unitVolume.add(Unit.LITER);
-        return unitVolume;
-    }
 
 
     @Override
@@ -38,8 +24,7 @@ public class Quantity {
             return false;
         final Quantity other = (Quantity) obj;
 
-
-        if (lengthUnits().contains(this.unit) && volumeUnit().contains(other.unit) || volumeUnit().contains(this.unit) && lengthUnits().contains(other.unit)) {
+        if (Unit.lengthUnits().contains(this.unit) && Unit.volumeUnit().contains(other.unit) || Unit.volumeUnit().contains(this.unit) && Unit.lengthUnits().contains(other.unit)) {
             return false;
         }
 
@@ -49,7 +34,7 @@ public class Quantity {
     }
 
     public Quantity add(Quantity other) throws IOException {
-        if (lengthUnits().contains(this.unit) && volumeUnit().contains(other.unit) || volumeUnit().contains(this.unit) && lengthUnits().contains(other.unit)) {
+        if (Unit.lengthUnits().contains(this.unit) && Unit.volumeUnit().contains(other.unit) || Unit.volumeUnit().contains(this.unit) && Unit.lengthUnits().contains(other.unit)) {
             throw new IOException();
         }
         return new Quantity(this.unit.convertToBase(value) + other.unit.convertToBase(other.value), other.unit);

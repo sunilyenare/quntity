@@ -185,8 +185,9 @@ public class QuantityTest {
 
             assertFalse(oneLiter.equals(oneInch));
         }
+
         @Test
-        void givenOneFeetAndOneGallon_whenAdded_theyShouldNotBeAdd(){
+        void givenOneFeetAndOneGallon_whenAdded_theyShouldNotBeAdd() {
             Quantity oneFeet = new Quantity(1, Unit.FEET);
             Quantity oneGallon = new Quantity(1, Unit.GALLON);
 
@@ -194,8 +195,9 @@ public class QuantityTest {
                 oneFeet.add(oneGallon);
             });
         }
+
         @Test
-        void givenOneGallonAndOneFeet_whenAdded_theyShouldNotBeAdd(){
+        void givenOneGallonAndOneFeet_whenAdded_theyShouldNotBeAdd() {
             Quantity oneGallon = new Quantity(1, Unit.GALLON);
             Quantity oneFeet = new Quantity(1, Unit.FEET);
 
