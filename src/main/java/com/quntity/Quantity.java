@@ -32,8 +32,8 @@ public class Quantity {
     }
 
     public Quantity add(Quantity other) throws IOException {
-        if (Unit.lengthUnits().contains(this.unit) && Unit.volumeUnit().contains(other.unit) || Unit.volumeUnit().contains(this.unit) && Unit.lengthUnits().contains(other.unit)) {
-            throw new IOException();
+        if(!this.unit.type.equals(other.unit.type)) {
+           throw new IOException();
         }
         return new Quantity(this.unit.convertToBase(value) + other.unit.convertToBase(other.value), other.unit);
     }

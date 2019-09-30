@@ -18,25 +18,6 @@ public enum Unit {
         this.type = type;
     }
 
-    public static List<Unit> lengthUnits() {
-        final Unit[] values = Unit.values();
-        for (Unit unit : values) {
-            if(unit.type.equals("LENGTH")) {
-                unitLength.add(unit);
-            }
-        }
-        return unitLength;
-    }
-
-    public static List<Unit> volumeUnit() {
-        final Unit[] values = Unit.values();
-        for (Unit unit : values) {
-            if(unit.type.equals("VOLUME")) {
-                unitVolume.add(unit);
-            }
-        }
-        return unitVolume;
-    }
 
     public double convertToBase(Double value) {
         return value * conversionFactor;
