@@ -3,6 +3,8 @@ package com.quntity;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QuantityTest {
@@ -139,7 +141,7 @@ public class QuantityTest {
         }
 
         @Test
-        void givenOneGallonAndOneLiter_whenAdd_theyShouldReturnFourPointSevenEightLiter() {
+        void givenOneGallonAndOneLiter_whenAdd_theyShouldReturnFourPointSevenEightLiter() throws IOException {
 
             Quantity oneGallon = new Quantity(1, Unit.GALLON);
             Quantity oneLiter = new Quantity(1, Unit.LITER);
@@ -148,22 +150,43 @@ public class QuantityTest {
         }
 
     }
+
     @Nested
-    class Gallon{
+    class GallonAndLiter {
 
         @Test
-        void givenOneGallonAndOneLiter_whenCheckEquality_theyShouldNotBeEqual(){
-            Quantity oneGallon=new Quantity(1,Unit.GALLON);
-            Quantity oneLiter=new Quantity(1,Unit.LITER);
+        void givenOneGallonAndOneLiter_whenCheckEquality_theyShouldNotBeEqual() {
+            Quantity oneGallon = new Quantity(1, Unit.GALLON);
+            Quantity oneLiter = new Quantity(1, Unit.LITER);
 
             assertFalse(oneGallon.equals(oneLiter));
         }
+
         @Test
-        void givenOneFeetAndOneGallon_whenCheckEquality_theyShouldNotBeEqual(){
-            Quantity oneFeet=new Quantity(1,Unit.LITER);
-            Quantity oneGallon=new Quantity(1,Unit.GALLON);
+        void givenOneFeetAndOneGallon_whenCheckEquality_theyShouldNotBeEqual() {
+            Quantity oneFeet = new Quantity(1, Unit.FEET);
+            Quantity oneGallon = new Quantity(1, Unit.GALLON);
 
             assertFalse(oneGallon.equals(oneFeet));
+        }
+
+        @Test
+        void givenOneInchAndOneLiter_whenCheckEquality_theyShouldNotBeEqual() {
+            Quantity oneInch = new Quantity(1, Unit.INCH);
+            Quantity oneLiter = new Quantity(1, Unit.LITER);
+
+            //  assertFalse(oneInch.equals(oneLiter));
+        }
+
+
+        @Test
+        void givenOneFeetAndOneGallon_whenAdded_theyShouldNotBeAdd() {
+            Quantity oneFeet = new Quantity(1, Unit.FEET);
+            Quantity oneGallon = new Quantity(1, Unit.GALLON);
+
+            assertThrows(IOException.class, () -> {
+                oneFeet.add(oneGallon);
+            });
         }
 
     }
@@ -202,7 +225,7 @@ public class QuantityTest {
     class AddLengths {
 
         @Test
-        void givenZeroInchAndZeroInch_whenAdd_theyShouldAdd() {
+        void givenZeroInchAndZeroInch_whenAdd_theyShouldAdd() throws IOException {
 
             Quantity zeroInch = new Quantity(0.0, Unit.INCH);
             Quantity anotherZeroInch = new Quantity(0.0, Unit.INCH);
@@ -211,7 +234,7 @@ public class QuantityTest {
         }
 
         @Test
-        void givenOneInchAndOneInch_whenAdd_theyShouldAdd() {
+        void givenOneInchAndOneInch_whenAdd_theyShouldAdd() throws IOException {
 
             Quantity oneInch = new Quantity(1, Unit.INCH);
             Quantity anotherOneInch = new Quantity(1, Unit.INCH);
@@ -220,7 +243,7 @@ public class QuantityTest {
         }
 
         @Test
-        void givenTwoInchAndTwoInch_whenAdd_theyShouldAdd() {
+        void givenTwoInchAndTwoInch_whenAdd_theyShouldAdd() throws IOException {
 
             Quantity twoInch = new Quantity(2, Unit.INCH);
             Quantity anotherTwoInch = new Quantity(2, Unit.INCH);
@@ -229,7 +252,7 @@ public class QuantityTest {
         }
 
         @Test
-        void givenOneFeetAndTwoInch_whenAdd_theyShouldReturnFourteen() {
+        void givenOneFeetAndTwoInch_whenAdd_theyShouldReturnFourteen() throws IOException {
 
             Quantity oneFeet = new Quantity(1, Unit.FEET);
             Quantity anotherTwoInch = new Quantity(2, Unit.INCH);
