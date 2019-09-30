@@ -49,7 +49,9 @@ public class Quantity {
     }
 
     public Quantity add(Quantity other) throws IOException {
-
+        if (lengthUnits().contains(this.unit) && volumeUnit().contains(other.unit) || volumeUnit().contains(this.unit) && lengthUnits().contains(other.unit)) {
+            throw new IOException();
+        }
         return new Quantity(this.unit.convertToBase(value) + other.unit.convertToBase(other.value), other.unit);
     }
 
