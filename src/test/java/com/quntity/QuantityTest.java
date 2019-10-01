@@ -196,7 +196,7 @@ public class QuantityTest {
                 oneFeet.add(oneGallon);
             });
 
-            assertEquals(oneFeet.unit.type + " AND " + oneGallon.unit.type + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
+            assertEquals(oneFeet.unit.getMeasurementType() + " AND " + oneGallon.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
 
         @Test
@@ -208,7 +208,7 @@ public class QuantityTest {
                 oneGallon.add(oneFeet);
             });
 
-            assertEquals(oneGallon.unit.type + " AND " + oneFeet.unit.type + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
+            assertEquals(oneGallon.unit.getMeasurementType() + " AND " + oneFeet.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
     }
 

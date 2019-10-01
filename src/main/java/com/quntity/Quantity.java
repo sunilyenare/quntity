@@ -25,7 +25,7 @@ public class Quantity {
             return false;
         final Quantity other = (Quantity) obj;
 
-        if (!this.unit.type.equals(other.unit.type)) {
+        if (!this.unit.getMeasurementType().equals(other.unit.getMeasurementType())) {
             return false;
         }
 
@@ -34,10 +34,10 @@ public class Quantity {
 
 
     public Quantity add(Quantity other) throws IllegalArgumentException {
-        if (!this.unit.type.equals(other.unit.type)) {
-            throw new IllegalArgumentException(this.unit.type + " AND " + other.unit.type + " NOT VALID FOR ADD OPERATION ");
+        if (!this.unit.getMeasurementType().equals(other.unit.getMeasurementType())) {
+            throw new IllegalArgumentException(this.unit.getMeasurementType() + " AND " + other.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ");
         }
-        return new Quantity(thisValueInBase() + otherValueInBase(other), other.unit.baseUnit);
+        return new Quantity(thisValueInBase() + otherValueInBase(other), other.unit.getBaseUnit());
     }
 
     @Override
