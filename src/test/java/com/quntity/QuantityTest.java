@@ -338,6 +338,14 @@ public class QuantityTest {
 
             assertNotEquals(createGram(0), new Object());
         }
+
+        @Test
+        void givenOneGramAndTwoGram_whenCheckEquality_TheyShouldNotBeEqual() {
+            Quantity oneGram = createGram(1);
+            Quantity twoGram = createGram(2);
+
+            assertFalse(oneGram.equals(twoGram));
+        }
     }
 
 }
