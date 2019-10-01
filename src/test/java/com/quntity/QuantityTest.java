@@ -433,6 +433,13 @@ public class QuantityTest {
             assertEquals(createGram(0), zeroGram.add(anotherZeroGram));
         }
 
+        @Test
+        void givenOneGramAndOneGram_whenAdd_theyShouldBeAdd() {
+            Quantity oneGram = createGram(1);
+            Quantity anotherOneGram = createGram(1);
+
+            assertEquals(createGram(2), oneGram.add(anotherOneGram));
+        }
     }
 
 }
