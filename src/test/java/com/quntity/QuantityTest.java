@@ -306,6 +306,15 @@ public class QuantityTest {
 
             assertNotEquals(createKilogram(0), new Object());
         }
+
+        @Test
+        void givenOneKiloGramAndTwoKiloGram_whenCheckEquality_TheyShouldNotBeEqual() {
+            Quantity oneKiloGram = createKilogram(1);
+            Quantity twoKiloGram = createKilogram(2);
+
+            assertFalse(oneKiloGram.equals(twoKiloGram));
+        }
+
     }
 
 
