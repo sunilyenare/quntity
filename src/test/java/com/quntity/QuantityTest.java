@@ -201,6 +201,7 @@ public class QuantityTest {
 
             assertEquals(oneGallon.unit.getMeasurementType() + " AND " + oneFeet.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
+
         @Test
         void givenOneGallonAndOneLiter_whenAdd_theyShouldReturnFourPointSevenEightLiter() throws IllegalArgumentException {
 
@@ -397,9 +398,16 @@ public class QuantityTest {
             assertEquals(oneGram, oneKiloGram);
         }
     }
-    @Nested
-    class KiloGramAndGramAddingTest{
 
+    @Nested
+    class KiloGramAndGramAddingTest {
+        @Test
+        void givenZeroKiloGramAndZeroKiloGram_whenAdd_theyShouldBeAdd() {
+            Quantity zeroKiloGram = createKilogram(0);
+            Quantity anotherKiloGram = createKilogram(0);
+
+            assertEquals(createKilogram(0), zeroKiloGram.add(anotherKiloGram));
+        }
     }
 
 }

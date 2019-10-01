@@ -19,4 +19,11 @@ public class Gram implements Unit {
     public double convertToBase(Double value) {
         return value * conversionFactor;
     }
+
+    @Override
+    public String toString() {
+        return "Gram{" +
+                "conversionFactor=" + conversionFactor +
+                '}';
+    }
 }
