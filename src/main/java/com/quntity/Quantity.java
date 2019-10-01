@@ -12,6 +12,12 @@ public class Quantity {
         this.unit = unit;
     }
 
+    double thisValue(){
+        return this.unit.convertToBase(value);
+    }
+    double otherValue(Quantity other){
+        return (double) Math.round(other.unit.convertToBase(other.value) * 100) / 100;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -25,16 +31,15 @@ public class Quantity {
             return false;
         }
 
-        final double meInBase = this.unit.convertToBase(value);
-        final double otherInBase = (double) Math.round(other.unit.convertToBase(other.value) * 100) / 100;
-        return meInBase == otherInBase;
+        return thisValue() == otherValue(other);
     }
+
 
     public Quantity add(Quantity other) throws IOException {
         if (!this.unit.type.equals(other.unit.type)) {
             throw new IOException();
         }
-        return new Quantity(this.unit.convertToBase(value) + other.unit.convertToBase(other.value), other.unit.baseUnit);
+        return new Quantity(thisValue() + otherValue(other), other.unit.baseUnit);
     }
 
     @Override
