@@ -346,6 +346,13 @@ public class QuantityTest {
 
             assertFalse(oneGram.equals(twoGram));
         }
+
+        @Test
+        void givenOneGramAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
+            Quantity oneGram = createGram(1);
+
+            assertFalse(oneGram.equals(null));
+        }
     }
 
 }
