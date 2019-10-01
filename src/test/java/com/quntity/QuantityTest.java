@@ -276,6 +276,7 @@ public class QuantityTest {
 
             assertEquals(createInch(14.0), oneFeet.add(anotherTwoInch));
         }
+
     }
 
 }

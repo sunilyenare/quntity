@@ -1,21 +1,27 @@
 package com.quntity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum Unit {
-    FEET(12, "LENGTH"), INCH(1, "LENGTH"), YARD(1, "LENGTH"),
+    FEET(12, Measurement.LENGTH), INCH(1, Measurement.LENGTH), YARD(1, Measurement.LENGTH),
 
-    GALLON(3.78, "VOLUME"), LITER(1, "VOLUME");
+    GALLON(3.78, Measurement.VOLUME), LITER(1, Measurement.VOLUME);
 
-    protected static List<Unit> unitLength = new ArrayList<Unit>();
-    protected static List<Unit> unitVolume = new ArrayList<Unit>();
     private double conversionFactor;
-    protected String type;
+    protected Measurement type;
 
-    Unit(double conversionFactor, String type) {
+    Unit(double conversionFactor, Measurement type) {
         this.conversionFactor = conversionFactor;
         this.type = type;
+    }
+
+    enum Measurement{
+        LENGTH,VOLUME;
+    }
+
+    public Unit getBaseUnit() {
+        if (this == FEET) {
+            return INCH;
+        }
+        return LITER;
     }
 
 
