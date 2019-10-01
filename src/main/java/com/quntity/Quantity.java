@@ -35,7 +35,7 @@ public class Quantity {
         if(!this.unit.type.equals(other.unit.type)) {
            throw new IOException();
         }
-        return new Quantity(this.unit.convertToBase(value) + other.unit.convertToBase(other.value), other.unit);
+        return new Quantity(this.unit.convertToBase(value) + other.unit.convertToBase(other.value), other.unit.getBaseUnit());
     }
 
     @Override

@@ -276,7 +276,14 @@ public class QuantityTest {
 
             assertEquals(createInch(14.0), oneFeet.add(anotherTwoInch));
         }
+        @Test
+        void givenOneInchAndOneFeet_whenAdd_theyShouldReturnOneThree() throws IOException {
 
+            Quantity oneFeet = createFeet(1);
+            Quantity oneInch = createInch(1);
+
+            assertEquals(createInch(13.0), oneInch.add(oneFeet));
+        }
     }
 
 }

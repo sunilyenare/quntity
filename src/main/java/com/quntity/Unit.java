@@ -21,6 +21,12 @@ public enum Unit {
         if (this == FEET) {
             return INCH;
         }
+        if(this == INCH){
+            return INCH;
+        }
+        if(this==YARD){
+            return FEET;
+        }
         return LITER;
     }
 
