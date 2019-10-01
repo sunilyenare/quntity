@@ -371,6 +371,13 @@ public class QuantityTest {
 
             assertNotEquals(oneFeet, oneKiloGram);
         }
+        @Test
+        void givenOneLiterAndOneGram_whenCheckEquality_theyShouldNotBeEqual() {
+            Quantity oneLiter = createLiter(1);
+            Quantity oneGram = createGram(1);
+
+            assertNotEquals(oneLiter, oneGram);
+        }
     }
 
 }
