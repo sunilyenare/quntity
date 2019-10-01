@@ -378,6 +378,13 @@ public class QuantityTest {
 
             assertNotEquals(oneLiter, oneGram);
         }
+        @Test
+        void givenOneKiloGramAndOneThousandGram_whenCheckEquality_theyShouldBeEqual() {
+            Quantity oneKiloGram = createKilogram(1);
+            Quantity oneGram = createGram(1000);
+
+            assertEquals(oneKiloGram, oneGram);
+        }
     }
 
 }
