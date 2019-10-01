@@ -190,6 +190,10 @@ public class QuantityTest {
             assertEquals(oneFeet.unit.getMeasurementType() + " AND " + oneGallon.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
 
+    }
+
+    @Nested
+    class UnitException {
         @Test
         void givenOneGallonAndOneFeet_whenAdded_theyShouldNotBeAdd() {
             Quantity oneGallon = createGallon(1);
@@ -210,7 +214,6 @@ public class QuantityTest {
 
             assertEquals(createLiter(4.78), oneGallon.add(oneLiter));
         }
-
     }
 
     @Nested
