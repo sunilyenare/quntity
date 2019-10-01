@@ -35,9 +35,9 @@ public class Quantity {
     }
 
 
-    public Quantity add(Quantity other) throws IOException {
+    public Quantity add(Quantity other) throws IllegalArgumentException {
         if (!this.unit.type.equals(other.unit.type)) {
-            throw new IOException();
+            throw new IllegalArgumentException("UNIT ARE DIFFRENT");
         }
         return new Quantity(thisValue() + otherValue(other), other.unit.baseUnit);
     }

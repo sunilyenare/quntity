@@ -142,7 +142,7 @@ public class QuantityTest {
         }
 
         @Test
-        void givenOneGallonAndOneLiter_whenAdd_theyShouldReturnFourPointSevenEightLiter() throws IOException {
+        void givenOneGallonAndOneLiter_whenAdd_theyShouldReturnFourPointSevenEightLiter() throws IllegalArgumentException {
 
             Quantity oneGallon = createGallon(1);
             Quantity oneLiter = createLiter(1);
@@ -192,9 +192,11 @@ public class QuantityTest {
             Quantity oneFeet = createFeet(1);
             Quantity oneGallon = createGallon(1);
 
-            assertThrows(IOException.class, () -> {
+            IllegalArgumentException thrown= assertThrows( IllegalArgumentException.class, () -> {
                 oneFeet.add(oneGallon);
             });
+
+            assertTrue(thrown.getMessage().contains("UNIT ARE DIFFRENT"));
         }
 
         @Test
@@ -202,9 +204,11 @@ public class QuantityTest {
             Quantity oneGallon = createGallon(1);
             Quantity oneFeet = createFeet(1);
 
-            assertThrows(IOException.class, () -> {
-                oneGallon.add(oneFeet);
+            IllegalArgumentException thrown= assertThrows( IllegalArgumentException.class, () -> {
+                oneFeet.add(oneGallon);
             });
+
+            assertTrue(thrown.getMessage().contains("UNIT ARE DIFFRENT"));
         }
     }
 
@@ -243,7 +247,7 @@ public class QuantityTest {
     class AddLengths {
 
         @Test
-        void givenZeroInchAndZeroInch_whenAdd_theyShouldAdd() throws IOException {
+        void givenZeroInchAndZeroInch_whenAdd_theyShouldAdd() throws IllegalArgumentException {
 
             Quantity zeroInch = createInch(0);
             Quantity anotherZeroInch = createInch(0);
@@ -251,7 +255,7 @@ public class QuantityTest {
         }
 
         @Test
-        void givenOneInchAndOneInch_whenAdd_theyShouldAdd() throws IOException {
+        void givenOneInchAndOneInch_whenAdd_theyShouldAdd() throws IllegalArgumentException {
 
             Quantity oneInch = createInch(1);
             Quantity anotherOneInch = createInch(1);
@@ -260,7 +264,7 @@ public class QuantityTest {
         }
 
         @Test
-        void givenTwoInchAndTwoInch_whenAdd_theyShouldAdd() throws IOException {
+        void givenTwoInchAndTwoInch_whenAdd_theyShouldAdd() throws IllegalArgumentException {
 
             Quantity twoInch = createInch(2);
             Quantity anotherTwoInch = createInch(2);
@@ -269,7 +273,7 @@ public class QuantityTest {
         }
 
         @Test
-        void givenOneFeetAndTwoInch_whenAdd_theyShouldReturnFourteen() throws IOException {
+        void givenOneFeetAndTwoInch_whenAdd_theyShouldReturnFourteen() throws IllegalArgumentException {
 
             Quantity oneFeet = createFeet(1);
             Quantity anotherTwoInch = createInch(2);
@@ -277,7 +281,7 @@ public class QuantityTest {
             assertEquals(createInch(14.0), oneFeet.add(anotherTwoInch));
         }
         @Test
-        void givenOneInchAndOneFeet_whenAdd_theyShouldReturnOneThree() throws IOException {
+        void givenOneInchAndOneFeet_whenAdd_theyShouldReturnOneThree() throws IllegalArgumentException {
 
             Quantity oneFeet = createFeet(1);
             Quantity oneInch = createInch(1);
