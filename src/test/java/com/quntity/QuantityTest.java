@@ -332,6 +332,12 @@ public class QuantityTest {
 
             assertEquals(zeroGram, anotherGram);
         }
+
+        @Test
+        void givenZeroGramAndAnotherObject_whenCheckEquality_TheyShouldNotBeEqual() {
+
+            assertNotEquals(createGram(0), new Object());
+        }
     }
 
 }
