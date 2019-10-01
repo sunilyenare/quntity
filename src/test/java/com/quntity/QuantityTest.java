@@ -192,11 +192,11 @@ public class QuantityTest {
             Quantity oneFeet = createFeet(1);
             Quantity oneGallon = createGallon(1);
 
-            IllegalArgumentException thrown= assertThrows( IllegalArgumentException.class, () -> {
+            IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
                 oneFeet.add(oneGallon);
             });
 
-            assertTrue(thrown.getMessage().contains("UNIT ARE DIFFRENT"));
+            assertEquals(oneFeet.unit.type + " AND " + oneGallon.unit.type + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
 
         @Test
@@ -204,11 +204,11 @@ public class QuantityTest {
             Quantity oneGallon = createGallon(1);
             Quantity oneFeet = createFeet(1);
 
-            IllegalArgumentException thrown= assertThrows( IllegalArgumentException.class, () -> {
-                oneFeet.add(oneGallon);
+            IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+                oneGallon.add(oneFeet);
             });
 
-            assertTrue(thrown.getMessage().contains("UNIT ARE DIFFRENT"));
+            assertEquals(oneGallon.unit.type + " AND " + oneFeet.unit.type + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
     }
 
@@ -280,6 +280,7 @@ public class QuantityTest {
 
             assertEquals(createInch(14.0), oneFeet.add(anotherTwoInch));
         }
+
         @Test
         void givenOneInchAndOneFeet_whenAdd_theyShouldReturnOneThree() throws IllegalArgumentException {
 

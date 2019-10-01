@@ -24,7 +24,7 @@ public enum Unit {
     }
 
     enum Measurement {
-        LENGTH, VOLUME;
+        LENGTH, VOLUME, WEIGHT;
     }
 
 

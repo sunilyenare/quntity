@@ -1,21 +1,19 @@
 package com.quntity;
 
-import java.io.IOException;
-
 public class Quantity {
     private final double value;
-    private final Unit unit;
-
+    protected final Unit unit;
 
     protected Quantity(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
     }
 
-    double thisValue(){
+    private double thisValueInBase() {
         return this.unit.convertToBase(value);
     }
-    double otherValue(Quantity other){
+
+    private double otherValueInBase(Quantity other) {
         return (double) Math.round(other.unit.convertToBase(other.value) * 100) / 100;
     }
 
@@ -31,15 +29,15 @@ public class Quantity {
             return false;
         }
 
-        return thisValue() == otherValue(other);
+        return thisValueInBase() == otherValueInBase(other);
     }
 
 
     public Quantity add(Quantity other) throws IllegalArgumentException {
         if (!this.unit.type.equals(other.unit.type)) {
-            throw new IllegalArgumentException("UNIT ARE DIFFRENT");
+            throw new IllegalArgumentException(this.unit.type + " AND " + other.unit.type + " NOT VALID FOR ADD OPERATION ");
         }
-        return new Quantity(thisValue() + otherValue(other), other.unit.baseUnit);
+        return new Quantity(thisValueInBase() + otherValueInBase(other), other.unit.baseUnit);
     }
 
     @Override
