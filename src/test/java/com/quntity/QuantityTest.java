@@ -354,9 +354,8 @@ public class QuantityTest {
             assertFalse(oneGram.equals(null));
         }
     }
-
     @Nested
-    class KiloGramAndGramTest {
+    class KiloGramAndGramTest{
         @Test
         void givenOneKiloGramAndOneGram_whenCheckEquality_theyShouldNotBeEqual() {
             Quantity oneKiloGram = createKilogram(1);
@@ -365,6 +364,13 @@ public class QuantityTest {
             assertFalse(oneKiloGram.equals(oneGram));
         }
 
+        @Test
+        void givenOneFeetAndOneKiloGram_whenCheckEquality_theyShouldNotBeEqual() {
+            Quantity oneFeet = createFeet(1);
+            Quantity oneKiloGram = createKilogram(1);
+
+            assertNotEquals(oneFeet, oneKiloGram);
+        }
     }
 
 }
