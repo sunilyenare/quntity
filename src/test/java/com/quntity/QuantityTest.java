@@ -416,6 +416,13 @@ public class QuantityTest {
 
             assertEquals(createGram(2000), oneKiloGram.add(anotherKiloGram));
         }
+        @Test
+        void givenOneKiloGramAndOneGram_whenAdd_theyShouldBeAdd() {
+            Quantity oneKiloGram = createKilogram(1);
+            Quantity oneGram = createGram(1);
+
+            assertEquals(createGram(1001), oneKiloGram.add(oneGram));
+        }
     }
 
 }
