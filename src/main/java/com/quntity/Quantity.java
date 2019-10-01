@@ -13,7 +13,6 @@ public class Quantity {
     }
 
 
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -22,7 +21,7 @@ public class Quantity {
             return false;
         final Quantity other = (Quantity) obj;
 
-        if(!this.unit.type.equals(other.unit.type)) {
+        if (!this.unit.type.equals(other.unit.type)) {
             return false;
         }
 
@@ -32,10 +31,10 @@ public class Quantity {
     }
 
     public Quantity add(Quantity other) throws IOException {
-        if(!this.unit.type.equals(other.unit.type)) {
-           throw new IOException();
+        if (!this.unit.type.equals(other.unit.type)) {
+            throw new IOException();
         }
-        return new Quantity(this.unit.convertToBase(value) + other.unit.convertToBase(other.value), other.unit.getBaseUnit());
+        return new Quantity(this.unit.convertToBase(value) + other.unit.convertToBase(other.value), other.unit.baseUnit);
     }
 
     @Override

@@ -1,33 +1,30 @@
 package com.quntity;
 
 public enum Unit {
-    FEET(12, Measurement.LENGTH), INCH(1, Measurement.LENGTH), YARD(1, Measurement.LENGTH),
-
-    GALLON(3.78, Measurement.VOLUME), LITER(1, Measurement.VOLUME);
+    INCH(1, Measurement.LENGTH),
+    FEET(12, Measurement.LENGTH, Unit.INCH),
+    YARD(1, Measurement.LENGTH, Unit.FEET),
+    LITER(1, Measurement.VOLUME),
+    GALLON(3.78, Measurement.VOLUME, Unit.LITER);
 
     private double conversionFactor;
     protected Measurement type;
+    protected Unit baseUnit;
 
     Unit(double conversionFactor, Measurement type) {
         this.conversionFactor = conversionFactor;
         this.type = type;
+        this.baseUnit=this;
     }
 
-    enum Measurement{
-        LENGTH,VOLUME;
+    Unit(double conversionFactor, Measurement type, Unit baseUnit) {
+        this.conversionFactor = conversionFactor;
+        this.type = type;
+        this.baseUnit = baseUnit;
     }
 
-    public Unit getBaseUnit() {
-        if (this == FEET) {
-            return INCH;
-        }
-        if(this == INCH){
-            return INCH;
-        }
-        if(this==YARD){
-            return FEET;
-        }
-        return LITER;
+    enum Measurement {
+        LENGTH, VOLUME;
     }
 
 
