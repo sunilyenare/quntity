@@ -5,6 +5,7 @@ import com.quntity.length.Inch;
 import com.quntity.length.Yard;
 import com.quntity.volume.Gallon;
 import com.quntity.volume.Liter;
+import com.quntity.weight.Gram;
 import com.quntity.weight.KiloGram;
 
 public class QuantityFactory {
@@ -31,5 +32,9 @@ public class QuantityFactory {
 
     public static Quantity createKilogram(double value) {
         return new Quantity(value, new KiloGram());
+    }
+
+    public static Quantity createGram(double value) {
+        return new Quantity(value, new Gram());
     }
 }

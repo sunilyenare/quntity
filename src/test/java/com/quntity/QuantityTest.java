@@ -323,5 +323,15 @@ public class QuantityTest {
         }
     }
 
+    @Nested
+    class GramTest {
+        @Test
+        void givenZeroGramAndZeroGram_whenCheckEquality_TheyShouldBeEqual() {
+            Quantity zeroGram = createGram(0);
+            Quantity anotherGram = createGram(0);
+
+            assertEquals(zeroGram, anotherGram);
+        }
+    }
 
 }

@@ -4,18 +4,19 @@ import com.quntity.Measurement;
 import com.quntity.Unit;
 
 public class Gram implements Unit {
+    private double conversionFactor = 1;
     @Override
     public Measurement getMeasurementType() {
-        return null;
+        return Measurement.WEIGHT;
     }
 
     @Override
     public Unit getBaseUnit() {
-        return null;
+        return this;
     }
 
     @Override
     public double convertToBase(Double value) {
-        return 0;
+        return value * conversionFactor;
     }
 }
