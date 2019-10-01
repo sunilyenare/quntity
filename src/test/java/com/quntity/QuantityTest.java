@@ -179,16 +179,14 @@ public class QuantityTest {
         }
 
         @Test
-        void givenOneFeetAndOneGallon_whenAdded_theyShouldNotBeAdd() {
-            Quantity oneFeet = createFeet(1);
+        void givenOneGallonAndOneLiter_whenAdd_theyShouldReturnFourPointSevenEightLiter() throws IllegalArgumentException {
+
             Quantity oneGallon = createGallon(1);
+            Quantity oneLiter = createLiter(1);
 
-            IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-                oneFeet.add(oneGallon);
-            });
-
-            assertEquals(oneFeet.unit.getMeasurementType() + " AND " + oneGallon.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
+            assertEquals(createLiter(4.78), oneGallon.add(oneLiter));
         }
+
 
     }
 
@@ -207,13 +205,18 @@ public class QuantityTest {
         }
 
         @Test
-        void givenOneGallonAndOneLiter_whenAdd_theyShouldReturnFourPointSevenEightLiter() throws IllegalArgumentException {
-
+        void givenOneFeetAndOneGallon_whenAdded_theyShouldNotBeAdd() {
+            Quantity oneFeet = createFeet(1);
             Quantity oneGallon = createGallon(1);
-            Quantity oneLiter = createLiter(1);
 
-            assertEquals(createLiter(4.78), oneGallon.add(oneLiter));
+            IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+                oneFeet.add(oneGallon);
+            });
+
+            assertEquals(oneFeet.unit.getMeasurementType() + " AND " + oneGallon.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
+
+
     }
 
     @Nested
