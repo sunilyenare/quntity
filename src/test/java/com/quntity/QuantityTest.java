@@ -290,6 +290,7 @@ public class QuantityTest {
             assertEquals(createInch(13.0), oneInch.add(oneFeet));
         }
     }
+
     @Nested
     class KiloGramTest {
         @Test
@@ -298,6 +299,12 @@ public class QuantityTest {
             Quantity anotherKiloGram = createKilogram(0);
 
             assertEquals(zeroKiloGram, anotherKiloGram);
+        }
+
+        @Test
+        void givenZeroKiloGramAndAnotherObject_whenCheckEquality_TheyShouldNotBeEqual() {
+
+            assertNotEquals(createKilogram(0), new Object());
         }
     }
 
