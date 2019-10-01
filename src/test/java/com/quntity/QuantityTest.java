@@ -315,6 +315,12 @@ public class QuantityTest {
             assertFalse(oneKiloGram.equals(twoKiloGram));
         }
 
+        @Test
+        void givenOneKiloGramAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
+            Quantity oneKiloGram = createKilogram(1);
+
+            assertFalse(oneKiloGram.equals(null));
+        }
     }
 
 
