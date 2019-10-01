@@ -355,7 +355,7 @@ public class QuantityTest {
         }
     }
     @Nested
-    class KiloGramAndGramTest{
+    class KiloGramAndGramEqualityTest {
         @Test
         void givenOneKiloGramAndOneGram_whenCheckEquality_theyShouldNotBeEqual() {
             Quantity oneKiloGram = createKilogram(1);
