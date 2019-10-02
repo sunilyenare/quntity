@@ -1,8 +1,8 @@
 package com.quntity;
 
 public class Quantity {
-    private final double value;
-    private final Unit unit;
+    protected final double value;
+    protected final Unit unit;
 
     protected Quantity(double value, Unit unit) {
         this.value = value;
