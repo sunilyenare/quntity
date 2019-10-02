@@ -3,8 +3,6 @@ package com.quntity;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
 import static com.quntity.QuantityFactory.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,8 +12,8 @@ public class QuantityTest {
     class FeetTest {
         @Test
         void givenZeroFeetAndZeroFeet_whenCompare_TheyShouldBeEqual() {
-            Quantity anotherZeroLength = createFeet(0);
-            final Quantity zeroFoot = createFeet(0);
+            AddableQuantity anotherZeroLength = createFeet(0);
+            final AddableQuantity zeroFoot = createFeet(0);
 
             assertTrue(anotherZeroLength.equals(zeroFoot));
         }
@@ -28,8 +26,8 @@ public class QuantityTest {
 
         @Test
         void givenOneFeetAndTwoFeet_whenCompare_TheyShouldNotBeEqual() {
-            Quantity oneLength = createFeet(1);
-            Quantity twoLength = createFeet(2);
+            AddableQuantity oneLength = createFeet(1);
+            AddableQuantity twoLength = createFeet(2);
 
             assertFalse(oneLength.equals(twoLength));
         }
@@ -37,7 +35,7 @@ public class QuantityTest {
         @Test
         void givenZeroFeetAndNull_whenCompare_TheyShouldNotBeEqual() {
 
-            Quantity zeroLength = createFeet(1);
+            AddableQuantity zeroLength = createFeet(1);
 
             assertFalse(zeroLength.equals(null));
 
@@ -47,11 +45,11 @@ public class QuantityTest {
 
     @Nested
     class InchTest {
-        Quantity withZero = createInch(0);
+        AddableQuantity withZero = createInch(0);
 
         @Test
         void givenZeroInchAndZeroInch_whenCheckEquality_theyShouldBeEqual() {
-            Quantity withAnotherZero = createInch(0);
+            AddableQuantity withAnotherZero = createInch(0);
 
             assertTrue(withZero.equals(withAnotherZero));
         }
@@ -79,64 +77,64 @@ public class QuantityTest {
     class ConversionTest {
         @Test
         void givenOneInchAndOneFeet_whenCheckEquality_thenShouldNotBeEqual() {
-            Quantity oneInch = createInch(1);
-            Quantity oneFeet = createFeet(1);
+            AddableQuantity oneInch = createInch(1);
+            AddableQuantity oneFeet = createFeet(1);
 
             assertFalse(oneFeet.equals(oneInch));
         }
 
         @Test
         void givenZeroFeetAndZeroInch_whenCheckEquality_thenShouldBeEqual() {
-            Quantity zeroInch = createInch(0);
-            Quantity zeroFeet = createFeet(0);
+            AddableQuantity zeroInch = createInch(0);
+            AddableQuantity zeroFeet = createFeet(0);
 
             assertTrue(zeroFeet.equals(zeroInch));
         }
 
         @Test
         void givenOneFeetAndTwelveInch_whenCheckEquality_theShouldBeEqual() {
-            Quantity twelveInch = createInch(12);
-            Quantity oneFeet = createFeet(1);
+            AddableQuantity twelveInch = createInch(12);
+            AddableQuantity oneFeet = createFeet(1);
 
             assertEquals(oneFeet, twelveInch);
         }
 
         @Test
         void givenTwoFeetAndTwentyFourInch_whenCheckEquality_theyShouldBeEqual() {
-            Quantity twentyFourInch = createInch(24);
-            Quantity twoFeet = createFeet(2);
+            AddableQuantity twentyFourInch = createInch(24);
+            AddableQuantity twoFeet = createFeet(2);
 
             assertEquals(twoFeet, twentyFourInch);
         }
 
         @Test
         void givenTwelveInchAndOneFeet_whenCheckEquality_theyShouldbeEqual() {
-            Quantity twelveInch = createInch(12);
-            Quantity oneFeet = createFeet(1);
+            AddableQuantity twelveInch = createInch(12);
+            AddableQuantity oneFeet = createFeet(1);
 
             assertEquals(twelveInch, oneFeet);
         }
 
         @Test
         void givenOneYardAndOneFeet_whenCheckEquality_thenShouldNotBeEqual() {
-            Quantity oneYard = createYard(1);
-            Quantity oneFeet = createFeet(1);
+            AddableQuantity oneYard = createYard(1);
+            AddableQuantity oneFeet = createFeet(1);
 
             assertFalse(oneFeet.equals(oneYard));
         }
 
         @Test
         void givenOneYardAndThreeFeet_whenCheckEquality_thenShouldBeEqual() {
-            Quantity oneYard = createYard(1);
-            Quantity threeFeet = createFeet(3);
+            AddableQuantity oneYard = createYard(1);
+            AddableQuantity threeFeet = createFeet(3);
 
             assertFalse(threeFeet.equals(oneYard));
         }
 
         @Test
         void givenOneGallonAndThreePointSeventyEightLiter_whenCheckEquality_thenShouldBeEqual() {
-            Quantity oneGallon = createGallon(1);
-            Quantity threePointSeventyEightLiter = createLiter(3.78);
+            AddableQuantity oneGallon = createGallon(1);
+            AddableQuantity threePointSeventyEightLiter = createLiter(3.78);
 
             assertTrue(oneGallon.equals(threePointSeventyEightLiter));
         }
@@ -148,32 +146,32 @@ public class QuantityTest {
 
         @Test
         void givenOneGallonAndOneLiter_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneGallon = createGallon(1);
-            Quantity oneLiter = createLiter(1);
+            AddableQuantity oneGallon = createGallon(1);
+            AddableQuantity oneLiter = createLiter(1);
 
             assertFalse(oneGallon.equals(oneLiter));
         }
 
         @Test
         void givenOneFeetAndOneGallon_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneFeet = createFeet(1);
-            Quantity oneGallon = createGallon(1);
+            AddableQuantity oneFeet = createFeet(1);
+            AddableQuantity oneGallon = createGallon(1);
 
             assertNotEquals(oneGallon, oneFeet);
         }
 
         @Test
         void givenOneInchAndOneLiter_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneInch = createInch(1);
-            Quantity oneLiter = createLiter(1);
+            AddableQuantity oneInch = createInch(1);
+            AddableQuantity oneLiter = createLiter(1);
 
             assertFalse(oneInch.equals(oneLiter));
         }
 
         @Test
         void givenOneLiterAndOneInch_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneLiter = createLiter(1);
-            Quantity oneInch = createInch(1);
+            AddableQuantity oneLiter = createLiter(1);
+            AddableQuantity oneInch = createInch(1);
 
             assertFalse(oneLiter.equals(oneInch));
         }
@@ -181,8 +179,8 @@ public class QuantityTest {
         @Test
         void givenOneGallonAndOneLiter_whenAdd_theyShouldReturnFourPointSevenEightLiter() throws IllegalArgumentException {
 
-            Quantity oneGallon = createGallon(1);
-            Quantity oneLiter = createLiter(1);
+            AddableQuantity oneGallon = createGallon(1);
+            AddableQuantity oneLiter = createLiter(1);
 
             assertEquals(createLiter(4.78), oneGallon.add(oneLiter));
         }
@@ -194,8 +192,8 @@ public class QuantityTest {
     class UnitException {
         @Test
         void givenOneGallonAndOneFeet_whenAdded_theyShouldNotBeAdd() {
-            Quantity oneGallon = createGallon(1);
-            Quantity oneFeet = createFeet(1);
+            AddableQuantity oneGallon = createGallon(1);
+            AddableQuantity oneFeet = createFeet(1);
 
             IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
                 oneGallon.add(oneFeet);
@@ -206,8 +204,8 @@ public class QuantityTest {
 
         @Test
         void givenOneFeetAndOneGallon_whenAdded_theyShouldNotBeAdd() {
-            Quantity oneFeet = createFeet(1);
-            Quantity oneGallon = createGallon(1);
+            AddableQuantity oneFeet = createFeet(1);
+            AddableQuantity oneGallon = createGallon(1);
 
             IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
                 oneFeet.add(oneGallon);
@@ -218,8 +216,8 @@ public class QuantityTest {
 
         @Test
         void givenOneKiloGramAndOneFeet_whenAdded_theyShouldNotBeAdd() {
-            Quantity oneKiloGram = createKilogram(1);
-            Quantity oneFeet = createFeet(1);
+            AddableQuantity oneKiloGram = createKilogram(1);
+            AddableQuantity oneFeet = createFeet(1);
 
             IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
                 oneKiloGram.add(oneFeet);
@@ -230,8 +228,8 @@ public class QuantityTest {
 
         @Test
         void givenOneFeetAndOneKiloGram_whenAdded_theyShouldNotBeAdd() {
-            Quantity oneFeet = createFeet(1);
-            Quantity oneKiloGram = createKilogram(1);
+            AddableQuantity oneFeet = createFeet(1);
+            AddableQuantity oneKiloGram = createKilogram(1);
 
             IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
                 oneFeet.add(oneKiloGram);
@@ -244,11 +242,11 @@ public class QuantityTest {
 
     @Nested
     class YardTest {
-        Quantity withZero = createYard(0);
+        AddableQuantity withZero = createYard(0);
 
         @Test
         void givenZeroYardAndZeroYard_whenCheckEquality_theyShouldBeEqual() {
-            Quantity withAnotherZero = createYard(0);
+            AddableQuantity withAnotherZero = createYard(0);
 
             assertTrue(withZero.equals(withAnotherZero));
         }
@@ -279,16 +277,16 @@ public class QuantityTest {
         @Test
         void givenZeroInchAndZeroInch_whenAdd_theyShouldAdd() throws IllegalArgumentException {
 
-            Quantity zeroInch = createInch(0);
-            Quantity anotherZeroInch = createInch(0);
+            AddableQuantity zeroInch = createInch(0);
+            AddableQuantity anotherZeroInch = createInch(0);
             assertEquals(createInch(0), zeroInch.add(anotherZeroInch));
         }
 
         @Test
         void givenOneInchAndOneInch_whenAdd_theyShouldAdd() throws IllegalArgumentException {
 
-            Quantity oneInch = createInch(1);
-            Quantity anotherOneInch = createInch(1);
+            AddableQuantity oneInch = createInch(1);
+            AddableQuantity anotherOneInch = createInch(1);
 
             assertEquals(createInch(2.0), oneInch.add(anotherOneInch));
         }
@@ -296,8 +294,8 @@ public class QuantityTest {
         @Test
         void givenTwoInchAndTwoInch_whenAdd_theyShouldAdd() throws IllegalArgumentException {
 
-            Quantity twoInch = createInch(2);
-            Quantity anotherTwoInch = createInch(2);
+            AddableQuantity twoInch = createInch(2);
+            AddableQuantity anotherTwoInch = createInch(2);
 
             assertEquals(createInch(4.0), twoInch.add(anotherTwoInch));
         }
@@ -305,8 +303,8 @@ public class QuantityTest {
         @Test
         void givenOneFeetAndTwoInch_whenAdd_theyShouldReturnFourteen() throws IllegalArgumentException {
 
-            Quantity oneFeet = createFeet(1);
-            Quantity anotherTwoInch = createInch(2);
+            AddableQuantity oneFeet = createFeet(1);
+            AddableQuantity anotherTwoInch = createInch(2);
 
             assertEquals(createInch(14.0), oneFeet.add(anotherTwoInch));
         }
@@ -314,8 +312,8 @@ public class QuantityTest {
         @Test
         void givenOneInchAndOneFeet_whenAdd_theyShouldReturnOneThree() throws IllegalArgumentException {
 
-            Quantity oneFeet = createFeet(1);
-            Quantity oneInch = createInch(1);
+            AddableQuantity oneFeet = createFeet(1);
+            AddableQuantity oneInch = createInch(1);
 
             assertEquals(createInch(13.0), oneInch.add(oneFeet));
         }
@@ -325,8 +323,8 @@ public class QuantityTest {
     class KiloGramTest {
         @Test
         void givenZeroKiloGramAndZeroKiloGram_whenCheckEquality_TheyShouldBeEqual() {
-            Quantity zeroKiloGram = createKilogram(0);
-            Quantity anotherKiloGram = createKilogram(0);
+            AddableQuantity zeroKiloGram = createKilogram(0);
+            AddableQuantity anotherKiloGram = createKilogram(0);
 
             assertEquals(zeroKiloGram, anotherKiloGram);
         }
@@ -339,15 +337,15 @@ public class QuantityTest {
 
         @Test
         void givenOneKiloGramAndTwoKiloGram_whenCheckEquality_TheyShouldNotBeEqual() {
-            Quantity oneKiloGram = createKilogram(1);
-            Quantity twoKiloGram = createKilogram(2);
+            AddableQuantity oneKiloGram = createKilogram(1);
+            AddableQuantity twoKiloGram = createKilogram(2);
 
             assertFalse(oneKiloGram.equals(twoKiloGram));
         }
 
         @Test
         void givenOneKiloGramAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
-            Quantity oneKiloGram = createKilogram(1);
+            AddableQuantity oneKiloGram = createKilogram(1);
 
             assertFalse(oneKiloGram.equals(null));
         }
@@ -357,8 +355,8 @@ public class QuantityTest {
     class GramTest {
         @Test
         void givenZeroGramAndZeroGram_whenCheckEquality_TheyShouldBeEqual() {
-            Quantity zeroGram = createGram(0);
-            Quantity anotherGram = createGram(0);
+            AddableQuantity zeroGram = createGram(0);
+            AddableQuantity anotherGram = createGram(0);
 
             assertEquals(zeroGram, anotherGram);
         }
@@ -371,15 +369,15 @@ public class QuantityTest {
 
         @Test
         void givenOneGramAndTwoGram_whenCheckEquality_TheyShouldNotBeEqual() {
-            Quantity oneGram = createGram(1);
-            Quantity twoGram = createGram(2);
+            AddableQuantity oneGram = createGram(1);
+            AddableQuantity twoGram = createGram(2);
 
             assertFalse(oneGram.equals(twoGram));
         }
 
         @Test
         void givenOneGramAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
-            Quantity oneGram = createGram(1);
+            AddableQuantity oneGram = createGram(1);
 
             assertFalse(oneGram.equals(null));
         }
@@ -389,40 +387,40 @@ public class QuantityTest {
     class KiloGramAndGramEqualityTest {
         @Test
         void givenOneKiloGramAndOneGram_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneKiloGram = createKilogram(1);
-            Quantity oneGram = createGram(1);
+            AddableQuantity oneKiloGram = createKilogram(1);
+            AddableQuantity oneGram = createGram(1);
 
             assertFalse(oneKiloGram.equals(oneGram));
         }
 
         @Test
         void givenOneFeetAndOneKiloGram_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneFeet = createFeet(1);
-            Quantity oneKiloGram = createKilogram(1);
+            AddableQuantity oneFeet = createFeet(1);
+            AddableQuantity oneKiloGram = createKilogram(1);
 
             assertNotEquals(oneFeet, oneKiloGram);
         }
 
         @Test
         void givenOneLiterAndOneGram_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneLiter = createLiter(1);
-            Quantity oneGram = createGram(1);
+            AddableQuantity oneLiter = createLiter(1);
+            AddableQuantity oneGram = createGram(1);
 
             assertNotEquals(oneLiter, oneGram);
         }
 
         @Test
         void givenOneKiloGramAndOneThousandGram_whenCheckEquality_theyShouldBeEqual() {
-            Quantity oneKiloGram = createKilogram(1);
-            Quantity oneGram = createGram(1000);
+            AddableQuantity oneKiloGram = createKilogram(1);
+            AddableQuantity oneGram = createGram(1000);
 
             assertEquals(oneKiloGram, oneGram);
         }
 
         @Test
         void givenOneThousandGramAndOneKiloGram_whenCheckEquality_theyShouldBeEqual() {
-            Quantity oneGram = createGram(1000);
-            Quantity oneKiloGram = createKilogram(1);
+            AddableQuantity oneGram = createGram(1000);
+            AddableQuantity oneKiloGram = createKilogram(1);
 
             assertEquals(oneGram, oneKiloGram);
         }
@@ -432,48 +430,48 @@ public class QuantityTest {
     class KiloGramAndGramAddingTest {
         @Test
         void givenZeroKiloGramAndZeroKiloGram_whenAdd_theyShouldBeAdd() {
-            Quantity zeroKiloGram = createKilogram(0);
-            Quantity anotherKiloGram = createKilogram(0);
+            AddableQuantity zeroKiloGram = createKilogram(0);
+            AddableQuantity anotherKiloGram = createKilogram(0);
 
             assertEquals(createKilogram(0), zeroKiloGram.add(anotherKiloGram));
         }
 
         @Test
         void givenOneKiloGramAndOneKiloGram_whenAdd_theyShouldBeAdd() {
-            Quantity oneKiloGram = createKilogram(1);
-            Quantity anotherKiloGram = createKilogram(1);
+            AddableQuantity oneKiloGram = createKilogram(1);
+            AddableQuantity anotherKiloGram = createKilogram(1);
 
             assertEquals(createGram(2000), oneKiloGram.add(anotherKiloGram));
         }
 
         @Test
         void givenOneKiloGramAndOneGram_whenAdd_theyShouldBeAdd() {
-            Quantity oneKiloGram = createKilogram(1);
-            Quantity oneGram = createGram(1);
+            AddableQuantity oneKiloGram = createKilogram(1);
+            AddableQuantity oneGram = createGram(1);
 
             assertEquals(createGram(1001), oneKiloGram.add(oneGram));
         }
 
         @Test
         void givenZeroGramAndZeroGram_whenAdd_theyShouldBeAdd() {
-            Quantity zeroGram = createGram(0);
-            Quantity anotherZeroGram = createGram(0);
+            AddableQuantity zeroGram = createGram(0);
+            AddableQuantity anotherZeroGram = createGram(0);
 
             assertEquals(createGram(0), zeroGram.add(anotherZeroGram));
         }
 
         @Test
         void givenOneGramAndOneGram_whenAdd_theyShouldBeAdd() {
-            Quantity oneGram = createGram(1);
-            Quantity anotherOneGram = createGram(1);
+            AddableQuantity oneGram = createGram(1);
+            AddableQuantity anotherOneGram = createGram(1);
 
             assertEquals(createGram(2), oneGram.add(anotherOneGram));
         }
 
         @Test
         void givenOneGramAndOneKiloGram_whenAdd_theyShouldBeAdd() {
-            Quantity oneGram = createGram(1);
-            Quantity oneKiloGram = createKilogram(1);
+            AddableQuantity oneGram = createGram(1);
+            AddableQuantity oneKiloGram = createKilogram(1);
 
             assertEquals(createGram(1001), oneGram.add(oneKiloGram));
         }
@@ -485,8 +483,8 @@ public class QuantityTest {
 
         @Test
         void givenZeroCelsiusAndZeroCelsius_whenCheckEquality_TheyShouldBeEqual() {
-            Quantity zeroCelsius = createCelsius(0);
-            Quantity anotherCelsius = createCelsius(0);
+            AddableQuantity zeroCelsius = createCelsius(0);
+            AddableQuantity anotherCelsius = createCelsius(0);
 
             assertEquals(zeroCelsius, anotherCelsius);
         }
@@ -499,15 +497,15 @@ public class QuantityTest {
 
         @Test
         void givenOneCelsiusAndTwoCelsius_whenCheckEquality_TheyShouldNotBeEqual() {
-            Quantity oneCelsius = createCelsius(1);
-            Quantity twoCelsius = createCelsius(2);
+            AddableQuantity oneCelsius = createCelsius(1);
+            AddableQuantity twoCelsius = createCelsius(2);
 
             assertFalse(oneCelsius.equals(twoCelsius));
         }
 
         @Test
         void givenOneCelsiusAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
-            Quantity oneCelsius = createCelsius(1);
+            AddableQuantity oneCelsius = createCelsius(1);
 
             assertFalse(oneCelsius.equals(null));
         }
@@ -518,8 +516,8 @@ public class QuantityTest {
 
         @Test
         void givenZeroFahrenheitAndZeroFahrenheit_whenCheckEquality_TheyShouldBeEqual() {
-            Quantity zeroFahrenheit = createFahrenheit(0.0);
-            Quantity anotherFahrenheit = createFahrenheit(0.0);
+            AddableQuantity zeroFahrenheit = createFahrenheit(0.0);
+            AddableQuantity anotherFahrenheit = createFahrenheit(0.0);
 
             assertEquals(zeroFahrenheit, anotherFahrenheit);
         }
@@ -532,15 +530,15 @@ public class QuantityTest {
 
         @Test
         void givenOneFahrenheitAndTwoFahrenheit_whenCheckEquality_TheyShouldNotBeEqual() {
-            Quantity oneFahrenheit = createFahrenheit(1);
-            Quantity twoFahrenheit = createFahrenheit(2);
+            AddableQuantity oneFahrenheit = createFahrenheit(1);
+            AddableQuantity twoFahrenheit = createFahrenheit(2);
 
             assertFalse(oneFahrenheit.equals(twoFahrenheit));
         }
 
         @Test
         void givenOneFahrenheitAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
-            Quantity oneFahrenheit = createFahrenheit(1);
+            AddableQuantity oneFahrenheit = createFahrenheit(1);
 
             assertFalse(oneFahrenheit.equals(null));
         }
@@ -550,48 +548,48 @@ public class QuantityTest {
     class CelsiusAndFahrenheitEqualityTest {
         @Test
         void givenOneCelsiusAndOneFahrenheit_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneCelsius = createCelsius(1);
-            Quantity oneFahrenheit = createFahrenheit(1);
+            AddableQuantity oneCelsius = createCelsius(1);
+            AddableQuantity oneFahrenheit = createFahrenheit(1);
 
             assertFalse(oneCelsius.equals(oneFahrenheit));
         }
 
         @Test
         void givenOneFeetAndOneCelsius_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneFeet = createFeet(1);
-            Quantity oneCelsius = createCelsius(1);
+            AddableQuantity oneFeet = createFeet(1);
+            AddableQuantity oneCelsius = createCelsius(1);
 
             assertNotEquals(oneFeet, oneCelsius);
         }
 
         @Test
         void givenOneLiterAndOneFahrenheit_whenCheckEquality_theyShouldNotBeEqual() {
-            Quantity oneLiter = createLiter(1);
-            Quantity oneFahrenheit = createFahrenheit(1);
+            AddableQuantity oneLiter = createLiter(1);
+            AddableQuantity oneFahrenheit = createFahrenheit(1);
 
             assertNotEquals(oneLiter, oneFahrenheit);
         }
 
         @Test
         void givenZeroCelsiusAndThreeTwoFahrenheit_whenCheckEquality_theyShouldBeEqual() {
-            Quantity zeroCelsius = createCelsius(0);
-            Quantity threeTwoFahrenheit = createFahrenheit(32);
+            AddableQuantity zeroCelsius = createCelsius(0);
+            AddableQuantity threeTwoFahrenheit = createFahrenheit(32);
 
             assertEquals(zeroCelsius, threeTwoFahrenheit);
         }
 
         @Test
         void givenThreeTwoFahrenheitAndZeroCelsius_whenCheckEquality_theyShouldBeEqual() {
-            Quantity threeTwoFahrenheit = createFahrenheit(32);
-            Quantity zeroCelsius = createCelsius(0);
+            AddableQuantity threeTwoFahrenheit = createFahrenheit(32);
+            AddableQuantity zeroCelsius = createCelsius(0);
 
             assertEquals(threeTwoFahrenheit, zeroCelsius);
         }
 
         @Test
         void givenFiveZeroFahrenheitAndOneZeroCelsius_whenCheckEquality_theyShouldBeEqual() {
-            Quantity fiveZeroFahrenheit = createFahrenheit(50);
-            Quantity oneZeroCelsius = createCelsius(10);
+            AddableQuantity fiveZeroFahrenheit = createFahrenheit(50);
+            AddableQuantity oneZeroCelsius = createCelsius(10);
 
             assertEquals(fiveZeroFahrenheit, oneZeroCelsius);
         }

@@ -1,10 +1,10 @@
 package com.quntity;
 
-public class Quantity {
+public class AddableQuantity {
     private final double value;
     private final Unit unit;
 
-    protected Quantity(double value, Unit unit) {
+    protected AddableQuantity(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
     }
@@ -13,7 +13,7 @@ public class Quantity {
         return (double) Math.round(this.unit.convertToBase(value) * 100) / 100l;
     }
 
-    private double otherValueInBase(Quantity other) {
+    private double otherValueInBase(AddableQuantity other) {
         return (double) Math.round(other.unit.convertToBase(other.value) * 100) / 100;
     }
 
@@ -21,9 +21,9 @@ public class Quantity {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (!(obj instanceof Quantity))
+        if (!(obj instanceof AddableQuantity))
             return false;
-        final Quantity other = (Quantity) obj;
+        final AddableQuantity other = (AddableQuantity) obj;
 
         if (!this.unit.getMeasurementType().equals(other.unit.getMeasurementType())) {
             return false;
@@ -32,11 +32,11 @@ public class Quantity {
     }
 
 
-    public Quantity add(Quantity other) throws IllegalArgumentException {
+    public AddableQuantity add(AddableQuantity other) throws IllegalArgumentException {
         if (!this.unit.getMeasurementType().equals(other.unit.getMeasurementType())) {
             throw new IllegalArgumentException(this.unit.getMeasurementType() + " AND " + other.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ");
         }
-        return new Quantity(thisValueInBase() + otherValueInBase(other), other.unit.getBaseUnit());
+        return new AddableQuantity(thisValueInBase() + otherValueInBase(other), other.unit.getBaseUnit());
     }
 
     @Override
