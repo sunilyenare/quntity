@@ -571,12 +571,29 @@ public class QuantityTest {
 
             assertNotEquals(oneLiter, oneFahrenheit);
         }
+
         @Test
         void givenZeroCelsiusAndThreeTwoFahrenheit_whenCheckEquality_theyShouldBeEqual() {
             Quantity zeroCelsius = createCelsius(0);
             Quantity threeTwoFahrenheit = createFahrenheit(32);
 
-           assertEquals(zeroCelsius,threeTwoFahrenheit);
+            assertEquals(zeroCelsius, threeTwoFahrenheit);
+        }
+
+        @Test
+        void givenThreeTwoFahrenheitAndZeroCelsius_whenCheckEquality_theyShouldBeEqual() {
+            Quantity threeTwoFahrenheit = createFahrenheit(32);
+            Quantity zeroCelsius = createCelsius(0);
+
+            assertEquals(threeTwoFahrenheit, zeroCelsius);
+        }
+
+        @Test
+        void givenFiveZeroFahrenheitAndOneZeroCelsius_whenCheckEquality_theyShouldBeEqual() {
+            Quantity fiveZeroFahrenheit = createFahrenheit(50);
+            Quantity oneZeroCelsius = createCelsius(10);
+
+            assertEquals(fiveZeroFahrenheit, oneZeroCelsius);
         }
     }
 
