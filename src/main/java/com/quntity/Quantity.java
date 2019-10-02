@@ -2,7 +2,7 @@ package com.quntity;
 
 public class Quantity {
     private final double value;
-    protected final Unit unit;
+    private final Unit unit;
 
     protected Quantity(double value, Unit unit) {
         this.value = value;

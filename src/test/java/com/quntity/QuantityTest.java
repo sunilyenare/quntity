@@ -201,7 +201,7 @@ public class QuantityTest {
                 oneGallon.add(oneFeet);
             });
 
-            assertEquals(oneGallon.unit.getMeasurementType() + " AND " + oneFeet.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
+            assertEquals(Measurement.VOLUME + " AND " + Measurement.LENGTH + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
 
         @Test
@@ -213,8 +213,9 @@ public class QuantityTest {
                 oneFeet.add(oneGallon);
             });
 
-            assertEquals(oneFeet.unit.getMeasurementType() + " AND " + oneGallon.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
+            assertEquals(Measurement.LENGTH + " AND " + Measurement.VOLUME + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
+
         @Test
         void givenOneKiloGramAndOneFeet_whenAdded_theyShouldNotBeAdd() {
             Quantity oneKiloGram = createKilogram(1);
@@ -224,8 +225,9 @@ public class QuantityTest {
                 oneKiloGram.add(oneFeet);
             });
 
-            assertEquals(oneKiloGram.unit.getMeasurementType() + " AND " + oneFeet.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
+            assertEquals(Measurement.WEIGHT + " AND " + Measurement.LENGTH + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
+
         @Test
         void givenOneFeetAndOneKiloGram_whenAdded_theyShouldNotBeAdd() {
             Quantity oneFeet = createFeet(1);
@@ -235,7 +237,7 @@ public class QuantityTest {
                 oneFeet.add(oneKiloGram);
             });
 
-            assertEquals(oneFeet.unit.getMeasurementType() + " AND " + oneKiloGram.unit.getMeasurementType() + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
+            assertEquals(Measurement.LENGTH + " AND " + Measurement.WEIGHT + " NOT VALID FOR ADD OPERATION ", thrown.getMessage());
         }
 
     }
