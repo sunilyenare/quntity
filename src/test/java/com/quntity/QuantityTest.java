@@ -481,19 +481,28 @@ public class QuantityTest {
     }
 
     @Nested
-    class CelsiusTest{
+    class CelsiusTest {
 
         @Test
         void givenZeroCelsiusAndZeroCelsius_whenCheckEquality_TheyShouldBeEqual() {
-            Quantity zeroGram = createCelsius(0);
-            Quantity anotherGram = createCelsius(0);
+            Quantity zeroCelsius = createCelsius(0);
+            Quantity anotherCelsius = createCelsius(0);
 
-            assertEquals(zeroGram, anotherGram);
+            assertEquals(zeroCelsius, anotherCelsius);
         }
+
         @Test
         void givenZeroCelsiusAndAnotherObject_whenCheckEquality_TheyShouldNotBeEqual() {
 
             assertNotEquals(createCelsius(0), new Object());
+        }
+
+        @Test
+        void givenOneCelsiusAndTwoCelsius_whenCheckEquality_TheyShouldNotBeEqual() {
+            Quantity oneCelsius = createCelsius(1);
+            Quantity twoCelsius = createCelsius(2);
+
+            assertFalse(oneCelsius.equals(twoCelsius));
         }
     }
 
