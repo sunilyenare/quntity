@@ -40,11 +40,11 @@ public class QuantityFactory {
         return new AddableQuantity(value, new Gram());
     }
 
-    public static AddableQuantity createCelsius(double value) {
-        return new AddableQuantity(value, new Celsius());
+    public static NonAddableQuantity createCelsius(double value) {
+        return new NonAddableQuantity(value, new Celsius());
     }
 
-    public static AddableQuantity createFahrenheit(double value) {
-        return new AddableQuantity(value, new Fahrenheit());
+    public static NonAddableQuantity createFahrenheit(double value) {
+        return new NonAddableQuantity(value, new Fahrenheit());
     }
 }
