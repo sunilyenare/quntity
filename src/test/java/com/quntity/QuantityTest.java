@@ -480,4 +480,16 @@ public class QuantityTest {
 
     }
 
+    @Nested
+    class CelsiusTest{
+
+        @Test
+        void givenZeroCelsiusAndZeroCelsius_whenCheckEquality_TheyShouldBeEqual() {
+            Quantity zeroGram = createCelsius(0);
+            Quantity anotherGram = createCelsius(0);
+
+            assertEquals(zeroGram, anotherGram);
+        }
+    }
+
 }

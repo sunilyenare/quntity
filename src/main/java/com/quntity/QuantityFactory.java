@@ -3,6 +3,7 @@ package com.quntity;
 import com.quntity.length.Feet;
 import com.quntity.length.Inch;
 import com.quntity.length.Yard;
+import com.quntity.temprature.Celsius;
 import com.quntity.volume.Gallon;
 import com.quntity.volume.Liter;
 import com.quntity.weight.Gram;
@@ -36,5 +37,8 @@ public class QuantityFactory {
 
     public static Quantity createGram(double value) {
         return new Quantity(value, new Gram());
+    }
+    public static Quantity createCelsius(double value) {
+        return new Quantity(value, new Celsius());
     }
 }

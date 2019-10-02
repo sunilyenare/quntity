@@ -1,5 +1,5 @@
 package com.quntity;
 
 public enum  Measurement {
-    LENGTH, VOLUME, WEIGHT;
+    LENGTH, VOLUME, WEIGHT,TEMPRATURE;
 }
