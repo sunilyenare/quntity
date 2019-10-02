@@ -518,8 +518,8 @@ public class QuantityTest {
 
         @Test
         void givenZeroFahrenheitAndZeroFahrenheit_whenCheckEquality_TheyShouldBeEqual() {
-            Quantity zeroFahrenheit = createFahrenheit(0);
-            Quantity anotherFahrenheit = createFahrenheit(0);
+            Quantity zeroFahrenheit = createFahrenheit(0.0);
+            Quantity anotherFahrenheit = createFahrenheit(0.0);
 
             assertEquals(zeroFahrenheit, anotherFahrenheit);
         }
@@ -527,7 +527,7 @@ public class QuantityTest {
         @Test
         void givenZeroFahrenheitAndAnotherObject_whenCheckEquality_TheyShouldNotBeEqual() {
 
-            assertNotEquals(createFahrenheit(0), new Object());
+            assertNotEquals(createFahrenheit(0.0), new Object());
         }
 
         @Test
@@ -570,6 +570,13 @@ public class QuantityTest {
             Quantity oneFahrenheit = createFahrenheit(1);
 
             assertNotEquals(oneLiter, oneFahrenheit);
+        }
+        @Test
+        void givenZeroCelsiusAndThreeTwoFahrenheit_whenCheckEquality_theyShouldBeEqual() {
+            Quantity zeroCelsius = createCelsius(0);
+            Quantity threeTwoFahrenheit = createFahrenheit(32);
+
+           assertEquals(zeroCelsius,threeTwoFahrenheit);
         }
     }
 

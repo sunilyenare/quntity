@@ -10,7 +10,7 @@ public class Quantity {
     }
 
     private double thisValueInBase() {
-        return this.unit.convertToBase(value);
+        return (double) Math.round(this.unit.convertToBase(value) * 100) / 100l;
     }
 
     private double otherValueInBase(Quantity other) {
@@ -28,7 +28,6 @@ public class Quantity {
         if (!this.unit.getMeasurementType().equals(other.unit.getMeasurementType())) {
             return false;
         }
-
         return thisValueInBase() == otherValueInBase(other);
     }
 

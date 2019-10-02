@@ -4,7 +4,6 @@ import com.quntity.Measurement;
 import com.quntity.Unit;
 
 public class Fahrenheit implements Unit {
-    private double conversionFactor =32;
     @Override
     public Measurement getMeasurementType() {
         return Measurement.TEMPRATURE;
@@ -17,6 +16,6 @@ public class Fahrenheit implements Unit {
 
     @Override
     public double convertToBase(Double value) {
-        return value*conversionFactor;
+        return ((5 * (value - 32.0)) / 9.0);
     }
 }
