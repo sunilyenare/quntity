@@ -490,6 +490,11 @@ public class QuantityTest {
 
             assertEquals(zeroGram, anotherGram);
         }
+        @Test
+        void givenZeroCelsiusAndAnotherObject_whenCheckEquality_TheyShouldNotBeEqual() {
+
+            assertNotEquals(createCelsius(0), new Object());
+        }
     }
 
 }
