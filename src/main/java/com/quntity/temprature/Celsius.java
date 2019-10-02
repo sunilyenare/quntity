@@ -4,6 +4,7 @@ import com.quntity.Measurement;
 import com.quntity.Unit;
 
 public class Celsius implements Unit {
+    private double conversionFactor =1;
     @Override
     public Measurement getMeasurementType() {
         return Measurement.TEMPRATURE;
@@ -11,12 +12,12 @@ public class Celsius implements Unit {
 
     @Override
     public Unit getBaseUnit() {
-        return null;
+        return this;
     }
 
     @Override
     public double convertToBase(Double value) {
-        return value;
+        return value*conversionFactor;
     }
 
     @Override

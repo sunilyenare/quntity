@@ -544,5 +544,15 @@ public class QuantityTest {
             assertFalse(oneFahrenheit.equals(null));
         }
     }
+    @Nested
+    class CelsiusAndFahrenheitEqualityTest{
+        @Test
+        void givenOneCelsiusAndOneFahrenheit_whenCheckEquality_theyShouldNotBeEqual() {
+            Quantity oneCelsius = createCelsius(1);
+            Quantity oneFahrenheit = createFahrenheit(1);
+
+            assertFalse(oneCelsius.equals(oneFahrenheit));
+        }
+    }
 
 }
