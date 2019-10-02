@@ -1,15 +1,14 @@
 package com.quntity;
 
-public class AddableQuantity extends Quantity{
+public class AddableQuantity extends Quantity {
     private final double value;
     private final Unit unit;
 
     protected AddableQuantity(double value, Unit unit) {
-        super(value,unit);
+        super(value, unit);
         this.value = value;
         this.unit = unit;
     }
-
 
     public AddableQuantity add(AddableQuantity other) throws IllegalArgumentException {
         if (!this.unit.getMeasurementType().equals(other.unit.getMeasurementType())) {

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import static com.quntity.QuantityFactory.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NonAddableQuantityTest {
     @Nested
@@ -13,8 +12,8 @@ public class NonAddableQuantityTest {
 
         @Test
         void givenZeroCelsiusAndZeroCelsius_whenCheckEquality_TheyShouldBeEqual() {
-            NonAddableQuantity zeroCelsius = createCelsius(0);
-            NonAddableQuantity anotherCelsius = createCelsius(0);
+            Quantity zeroCelsius = createCelsius(0);
+            Quantity anotherCelsius = createCelsius(0);
 
             assertEquals(zeroCelsius, anotherCelsius);
         }
@@ -27,15 +26,15 @@ public class NonAddableQuantityTest {
 
         @Test
         void givenOneCelsiusAndTwoCelsius_whenCheckEquality_TheyShouldNotBeEqual() {
-            NonAddableQuantity oneCelsius = createCelsius(1);
-            NonAddableQuantity twoCelsius = createCelsius(2);
+            Quantity oneCelsius = createCelsius(1);
+            Quantity twoCelsius = createCelsius(2);
 
             assertFalse(oneCelsius.equals(twoCelsius));
         }
 
         @Test
         void givenOneCelsiusAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
-            NonAddableQuantity oneCelsius = createCelsius(1);
+            Quantity oneCelsius = createCelsius(1);
 
             assertFalse(oneCelsius.equals(null));
         }
@@ -46,8 +45,8 @@ public class NonAddableQuantityTest {
 
         @Test
         void givenZeroFahrenheitAndZeroFahrenheit_whenCheckEquality_TheyShouldBeEqual() {
-            NonAddableQuantity zeroFahrenheit = createFahrenheit(0.0);
-            NonAddableQuantity anotherFahrenheit = createFahrenheit(0.0);
+            Quantity zeroFahrenheit = createFahrenheit(0.0);
+            Quantity anotherFahrenheit = createFahrenheit(0.0);
 
             assertEquals(zeroFahrenheit, anotherFahrenheit);
         }
@@ -60,15 +59,15 @@ public class NonAddableQuantityTest {
 
         @Test
         void givenOneFahrenheitAndTwoFahrenheit_whenCheckEquality_TheyShouldNotBeEqual() {
-            NonAddableQuantity oneFahrenheit = createFahrenheit(1);
-            NonAddableQuantity twoFahrenheit = createFahrenheit(2);
+            Quantity oneFahrenheit = createFahrenheit(1);
+            Quantity twoFahrenheit = createFahrenheit(2);
 
             assertFalse(oneFahrenheit.equals(twoFahrenheit));
         }
 
         @Test
         void givenOneFahrenheitAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
-            NonAddableQuantity oneFahrenheit = createFahrenheit(1);
+            Quantity oneFahrenheit = createFahrenheit(1);
 
             assertFalse(oneFahrenheit.equals(null));
         }
@@ -78,8 +77,8 @@ public class NonAddableQuantityTest {
     class CelsiusAndFahrenheitEqualityTest {
         @Test
         void givenOneCelsiusAndOneFahrenheit_whenCheckEquality_theyShouldNotBeEqual() {
-            NonAddableQuantity oneCelsius = createCelsius(1);
-            NonAddableQuantity oneFahrenheit = createFahrenheit(1);
+            Quantity oneCelsius = createCelsius(1);
+            Quantity oneFahrenheit = createFahrenheit(1);
 
             assertFalse(oneCelsius.equals(oneFahrenheit));
         }
@@ -87,7 +86,7 @@ public class NonAddableQuantityTest {
         @Test
         void givenOneFeetAndOneCelsius_whenCheckEquality_theyShouldNotBeEqual() {
             AddableQuantity oneFeet = createFeet(1);
-            NonAddableQuantity oneCelsius = createCelsius(1);
+            Quantity oneCelsius = createCelsius(1);
 
             assertNotEquals(oneFeet, oneCelsius);
         }
@@ -95,31 +94,31 @@ public class NonAddableQuantityTest {
         @Test
         void givenOneLiterAndOneFahrenheit_whenCheckEquality_theyShouldNotBeEqual() {
             AddableQuantity oneLiter = createLiter(1);
-            NonAddableQuantity oneFahrenheit = createFahrenheit(1);
+            Quantity oneFahrenheit = createFahrenheit(1);
 
             assertNotEquals(oneLiter, oneFahrenheit);
         }
 
         @Test
         void givenZeroCelsiusAndThreeTwoFahrenheit_whenCheckEquality_theyShouldBeEqual() {
-            NonAddableQuantity zeroCelsius = createCelsius(0);
-            NonAddableQuantity threeTwoFahrenheit = createFahrenheit(32);
+            Quantity zeroCelsius = createCelsius(0);
+            Quantity threeTwoFahrenheit = createFahrenheit(32);
 
             assertEquals(zeroCelsius, threeTwoFahrenheit);
         }
 
         @Test
         void givenThreeTwoFahrenheitAndZeroCelsius_whenCheckEquality_theyShouldBeEqual() {
-            NonAddableQuantity threeTwoFahrenheit = createFahrenheit(32);
-            NonAddableQuantity zeroCelsius = createCelsius(0);
+            Quantity threeTwoFahrenheit = createFahrenheit(32);
+            Quantity zeroCelsius = createCelsius(0);
 
             assertEquals(threeTwoFahrenheit, zeroCelsius);
         }
 
         @Test
         void givenFiveZeroFahrenheitAndOneZeroCelsius_whenCheckEquality_theyShouldBeEqual() {
-            NonAddableQuantity fiveZeroFahrenheit = createFahrenheit(50);
-            NonAddableQuantity oneZeroCelsius = createCelsius(10);
+            Quantity fiveZeroFahrenheit = createFahrenheit(50);
+            Quantity oneZeroCelsius = createCelsius(10);
 
             assertEquals(fiveZeroFahrenheit, oneZeroCelsius);
         }
