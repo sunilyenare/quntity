@@ -512,6 +512,7 @@ public class QuantityTest {
             assertFalse(oneCelsius.equals(null));
         }
     }
+
     @Nested
     class FahrenheitTest {
 
@@ -523,6 +524,11 @@ public class QuantityTest {
             assertEquals(zeroFahrenheit, anotherFahrenheit);
         }
 
+        @Test
+        void givenZeroFahrenheitAndAnotherObject_whenCheckEquality_TheyShouldNotBeEqual() {
+
+            assertNotEquals(createFahrenheit(0), new Object());
+        }
 
     }
 
