@@ -564,6 +564,13 @@ public class QuantityTest {
             assertNotEquals(oneFeet, oneCelsius);
         }
 
+        @Test
+        void givenOneLiterAndOneFahrenheit_whenCheckEquality_theyShouldNotBeEqual() {
+            Quantity oneLiter = createLiter(1);
+            Quantity oneFahrenheit = createFahrenheit(1);
+
+            assertNotEquals(oneLiter, oneFahrenheit);
+        }
     }
 
 }
