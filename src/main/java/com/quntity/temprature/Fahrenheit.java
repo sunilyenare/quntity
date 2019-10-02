@@ -3,7 +3,7 @@ package com.quntity.temprature;
 import com.quntity.Measurement;
 import com.quntity.Unit;
 
-public class Celsius implements Unit {
+public class Fahrenheit implements Unit {
     @Override
     public Measurement getMeasurementType() {
         return Measurement.TEMPRATURE;
@@ -16,11 +16,6 @@ public class Celsius implements Unit {
 
     @Override
     public double convertToBase(Double value) {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return "Celsius{}";
+        return 0;
     }
 }
