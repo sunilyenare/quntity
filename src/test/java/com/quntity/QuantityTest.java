@@ -537,7 +537,12 @@ public class QuantityTest {
 
             assertFalse(oneFahrenheit.equals(twoFahrenheit));
         }
+        @Test
+        void givenOneFahrenheitAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
+            Quantity oneFahrenheit = createFahrenheit(1);
 
+            assertFalse(oneFahrenheit.equals(null));
+        }
     }
 
 }
