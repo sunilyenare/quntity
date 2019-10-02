@@ -16,6 +16,6 @@ public class Fahrenheit implements Unit {
 
     @Override
     public double convertToBase(Double value) {
-        return 0;
+        return value;
     }
 }
