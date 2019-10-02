@@ -504,6 +504,13 @@ public class QuantityTest {
 
             assertFalse(oneCelsius.equals(twoCelsius));
         }
+
+        @Test
+        void givenOneCelsiusAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
+            Quantity oneCelsius = createCelsius(1);
+
+            assertFalse(oneCelsius.equals(null));
+        }
     }
 
 }
