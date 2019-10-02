@@ -537,6 +537,7 @@ public class QuantityTest {
 
             assertFalse(oneFahrenheit.equals(twoFahrenheit));
         }
+
         @Test
         void givenOneFahrenheitAndNull_whenCheckEquality_TheyShouldNotBeEqual() {
             Quantity oneFahrenheit = createFahrenheit(1);
@@ -544,8 +545,9 @@ public class QuantityTest {
             assertFalse(oneFahrenheit.equals(null));
         }
     }
+
     @Nested
-    class CelsiusAndFahrenheitEqualityTest{
+    class CelsiusAndFahrenheitEqualityTest {
         @Test
         void givenOneCelsiusAndOneFahrenheit_whenCheckEquality_theyShouldNotBeEqual() {
             Quantity oneCelsius = createCelsius(1);
@@ -553,6 +555,15 @@ public class QuantityTest {
 
             assertFalse(oneCelsius.equals(oneFahrenheit));
         }
+
+        @Test
+        void givenOneFeetAndOneCelsius_whenCheckEquality_theyShouldNotBeEqual() {
+            Quantity oneFeet = createFeet(1);
+            Quantity oneCelsius = createCelsius(1);
+
+            assertNotEquals(oneFeet, oneCelsius);
+        }
+
     }
 
 }
